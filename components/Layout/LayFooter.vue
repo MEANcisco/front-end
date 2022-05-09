@@ -1,5 +1,5 @@
 <template>
-  <footer id="rs-footer" class="rs-footer">
+  <footer id="footer" class="rs-footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -11,8 +11,7 @@
             </div>
             <div class="textwidget pb-30">
               <p style="font-family: 'DINPro'">
-                Sedut perspiciatis unde omnis iste natus error sitlutem acc
-                usantium doloremque denounce with illo inventore veritatis
+                Laboratorio Clínico Alemán
               </p>
             </div>
             <ul class="footer-social md-mb-30">

@@ -11,7 +11,7 @@
           <VueSlickCarousel
 ref="carousel"
             class="rs-carousel"
-            :arrows="true" :dots="true"
+
             v-bind="sliderconf"
           >
             <div class="slider-content slide2">
@@ -25,7 +25,7 @@ ref="carousel"
                     data-wow-duration="2000ms"
                     style="text-shadow: 3px 3px 3px #000000"
                   >
-                    Aumentamos la
+                    Maximizamos la
                   </div>
                   <h1
                     class="sl-title mb-mb-10 wow fadeInRight"
@@ -33,7 +33,7 @@ ref="carousel"
                     data-wow-duration="2000ms"
                     style="text-shadow: 3px 3px 3px #000000"
                   >
-                    Calidad de exámenes
+                    Precisión en exámenes
                   </h1>
                   <div
                     class="sl-desc fadeInUp"
@@ -41,7 +41,7 @@ ref="carousel"
                     data-wow-duration="2000ms"
                     style="text-shadow: 3px 3px 3px #000000"
                   >
-                    Usando técnología moderna y lo ultimo en herramientas.
+                    Usando técnología moderna y lo ultimo en analisis.
                   </div>
                   <ul
                     class="slider-btn wow fadeInRight"
@@ -49,21 +49,30 @@ ref="carousel"
                     data-wow-duration="3000ms"
                   >
                     <li>
+                      <nuxt-link to="/reservas">
+
                       <a
                         class="readon learn-more slider-btn"
                         style="z-index: 100"
                         >Solicitar Domicilio</a
                       >
+                      </nuxt-link>
                     </li>
                     <li>
                       <div class="slider-video">
                         <a
                           style="z-index: 100"
                           class="popup-videos"
-                          href="https://www.youtube.com/watch?v=ikMhfYguJ8k"
+                          href="https://youtu.be/cu_88QCHUyc"
                         >
+                        <no-ssr>
+                    <font-awesome-icon
+
+                      :icon="['fa', 'flask']"
+                    />
+                  </no-ssr>
                           <font-awesome-icon
-                            style="color: white"
+                          :style="{ color: '#fff' }"
                             :icon="['fas', 'play']"
                           />
                         </a>
@@ -90,15 +99,14 @@ ref="carousel"
                           Laboratorio Clínico Alemán
                         </h1>
                         <div class="description">
-                          <p
-                            style="
-                              text-shadow: 3px 3px 3px 3px #000000;
-                              color: #fff;
-                            "
-                          >
-                            Tecnología en analisis de muestras en la región del
-                            Maule.
-                          </p>
+                          <div
+                    class="sl-desc fadeInUp"
+                    data-wow-delay="900ms"
+                    data-wow-duration="2000ms"
+                    style="text-shadow: 3px 3px 3px #000000"
+                  >
+                    Usando técnología moderna y lo ultimo en herramientas.
+                  </div>
                         </div>
                       </div>
                     </div>
@@ -113,7 +121,6 @@ ref="carousel"
                           <form
                             id="contact-form"
                             method="post"
-                            action="mailer.php"
                           >
                             <fieldset>
                               <div class="row">
@@ -138,13 +145,13 @@ ref="carousel"
                                 <div class="col-lg-12 mb-15">
                                   <div class="row">
                                     <div class="col-lg-6">
-                                      <h6>Domingo:</h6>
+                                      <h6 style="z-index: 99">Domingo:</h6>
                                     </div>
                                     <div
                                       class="col-lg-6"
                                       style="text-align: center"
                                     >
-                                      <p>Cerrado</p>
+                                      <p  style="z-index: 99">Cerrado</p>
                                     </div>
                                   </div>
                                 </div>
@@ -530,19 +537,27 @@ ref="carousel"
               <div class="contact-wrap">
                 <div class="sec-title mb-30">
                   <div class="sub-text style2">Sobre Nosotros</div>
-                  <h2 class="title pb-38">Laboratorio Clínico Alemán</h2>
                   <div class="desc pb-35">
-                    Descripción de prueba lorem ipsum dolor sit amet.
+                    <h2>Misión</h2>
+                    Laboratorio Alemán debe respetar en todo momento sus principios de origen.
+Su personal deberá cumplir con todos los pacientes :
+Respeto,
+Empatía,
+Ética,
+Responsabilidad,
+Confiabilidad,
+Seguridad y
+Calidad total en todos nuestros procesos
                   </div>
                   <p class="margin-0 pb-15">
-                    Subtitulo lorem ipsum dolor sit amet.
+                    <h2>Visión</h2>
+                    <p>
+                    Mantener la misión , modernizar según avances en la ciencia y tecnología.
+Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y personal de salud .
+
                   </p>
                 </div>
-                <div class="btn-part">
-                  <a class="readon learn-more contact-us" href="contact.html"
-                    >Ver Más</a
-                  >
-                </div>
+
               </div>
             </div>
           </div>
@@ -556,7 +571,7 @@ ref="carousel"
       <div class="rs-counter main-counter-home">
         <div class="counter-top-area text-center bg2">
           <div class="row">
-            <div class="col-lg-4 md-mb-40">
+           <!--  <div class="col-lg-4 md-mb-40">
               <div class="counter-list">
                 <div class="counter-text">
                   <div class="count-number">
@@ -565,8 +580,8 @@ ref="carousel"
                   <h3 class="title">Clientes</h3>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-4 md-mb-40">
+            </div> -->
+            <div class="col-lg-6 md-mb-40">
               <div class="counter-list">
                 <div class="counter-text">
                   <div class="count-number">
@@ -576,7 +591,7 @@ ref="carousel"
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <div class="counter-list">
                 <div class="counter-text">
                   <div class="count-number">
@@ -596,7 +611,18 @@ ref="carousel"
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-4 md-mb-40">
-              <div class="process-wrap bg3">
+              <div
+class="process-wrap bg3" style="
+
+background: url(assets/images/bg/process-bg.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-color: #03228F;
+margin: 0px 31px 0px 0px;
+padding: 80px 40px 75px 40px;
+transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+border-radius: 10px 10px 10px 10px;">
                 <div class="sec-title mb-30">
                   <div class="sub-text new">Toma de exámenes</div>
                   <h2 class="title white-color">
@@ -680,13 +706,13 @@ ref="carousel"
       <!-- Process Section End -->
 
       <!-- Blog Section Start -->
-      <div id="rs-blog" class="rs-blog pb-120 pt-120 md-pt-80 md-pb-80">
+<!--       <div id="rs-blog" class="rs-blog pb-120 pt-120 md-pt-80 md-pb-80">
         <div class="container">
           <div class="sec-title2 text-center mb-45">
             <span class="sub-text">Blogs</span>
             <h2 class="title testi-title">Vea nuestro blog informativo</h2>
             <div class="heading-line"></div>
-          </div>
+          </div> -->
           <!--   <VueSlickCarousel
               class="rs-carousel"
               v-bind="sliderblog"
@@ -705,7 +731,7 @@ href="blog-details.html"
                     ><img
                       v-if="entrada.portada"
                       :src="
-                        'https://api.reservas-lab.ml' +
+                        'http://api.reservas-lab.cf' +
                         entrada.portada.formats.large.url
                       "
                       alt=""
@@ -731,12 +757,13 @@ href="blog-details.html"
                 </div>
               </div>
             </VueSlickCarousel> -->
-        </div>
-      </div>
+      <!--   </div>
+      </div> -->
       <!-- Blog Section End -->
 
       <!-- Partner Start -->
-      <div class="rs-partner pt-80 pb-70">
+<!--
+ <div class="rs-partner pt-80 pb-70">
         <div class="container">
             <VueSlickCarousel
               v-bind="sliderbrands"
@@ -888,6 +915,8 @@ href="blog-details.html"
             </VueSlickCarousel>
         </div>
       </div>
+
+      -->
       <!-- Partner End -->
     </div>
     <LayoutLayFooter />
@@ -905,13 +934,8 @@ export default {
   data: () => ({
     blog: [],
     sliderconf: {
-      slidesToShow: 1,
-      slidesToScroll: 3,
-      initialSlide: 1,
-      dotsClass: "slick-dots custom-dot-class",
-      edgeFriction: 0.35,
+      slidesToScroll: 1,
       infinite: true,
-      arrows: true,
       dots: true,
       autoplaySpeed: 7000,
       autoplay: true,
@@ -936,15 +960,12 @@ export default {
     },
   }),
   async fetch() {
-    this.blog = await fetch('https://api.reservas-lab.ml/entradas').then(
+    this.blog = await fetch('http://api.reservas-lab.cf/entradas').then(
       (res) => res.json().data
     )
   },
 
     methods: {
-      showNext() {
-        this.$refs.carousel.next()
-      }
   },
 }
 </script>

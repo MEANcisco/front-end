@@ -25,6 +25,7 @@
                   Ingresa la información entregada a la hora de atenderte en el
                   formulario, podrás ver el estado de tus exámenes.
                 </p>
+
                 <div class="rs-cart pt-120 pb-120 md-pt-80 md-pb-80">
                   <div class="container">
                     <div class="cart-wrap">
@@ -153,15 +154,32 @@ export default {
     SelectedEx: [],
     dataTable: [],
   }),
-  async fetch() {
-    this.exams = await fetch(
-      'https://api.reservas-lab.ml/examenes?_limit=500'
-    ).then((res) => res.json())
+   async fetch() {
+    const examsreq = await this.$axios.get(
+      'http://api.reservas-lab.cf/api/examenes?pagination[limit]=500&populate=%2A'
+    ).then((res) => {return res.data.data});
+
+    this.exams = examsreq.map(d => {
+      if(d.attributes.fonasa.data !== null){
+        return {id: d.id,
+              nombre: d.attributes.nombre,
+              entrega: d.attributes.entrega,
+              fonasa: d.attributes.fonasa.data.attributes
+              }
+      } else {
+
+        return {id: d.id,
+              nombre: d.attributes.nombre,
+              entrega: d.attributes.entrega,
+
+
+              }
+      }
+
+    })
   },
   methods: {
     getTable() {
-      // eslint-disable-next-line no-console
-      console.log(this.SelectedEx)
     },
     limpiar() {
       this.SelectedEx = []

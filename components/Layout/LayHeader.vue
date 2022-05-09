@@ -19,7 +19,7 @@
                   <i class="flaticon-location"></i>
                   <span class="contact-info">
                     <span>Dirección</span>
-                    Manuel Montt 387, Curicó, Maule
+                    Manuel Montt 378, Curicó, Maule
                   </span>
                 </li>
                 <li class="contact-part">
@@ -70,7 +70,7 @@
 
               <nav
                 v-if="$device.isDesktop"
-                style="margin-left: 55%"
+                style="margin-left: 100%"
                 :class="[isActive ? 'rs-menu-open' : 'rs-menu-close']"
                 class="rs-menu"
               >
@@ -153,19 +153,7 @@
                       </nuxt-link>
                     </client-only>
                   </li>
-                  <li style="margin-right: 0px">
-                    <client-only>
-                      <a
-                        style="
-                          font-family: 'DIN Alternate Bold';
-                          font-weight: normal;
-                          font-size: 18px;
-                          color: #53575a;
-                        "
-                        >NOSOTROS</a
-                      >
-                    </client-only>
-                  </li>
+
                   <li>
                     <client-only>
                       <nuxt-link to="#footer">

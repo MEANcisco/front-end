@@ -40,7 +40,7 @@
                 </div>
                 <div class="address-text">
                   <span class="label">Informacion Paciente:</span>
-                  <a>{{ form.paciente.rut }}</a>
+                  <a>{{ pacienteBorr.rut }}</a>
                 </div>
               </div>
               <div class="address-box mb-25">
@@ -72,8 +72,8 @@
                 </div>
                 <div class="address-text">
                   <span class="label">Examenes:</span>
-                  <div v-if="form.examenes.length" class="desc">
-                    {{ form.examenes.length }}
+                  <div v-if="form.examen.length" class="desc">
+                    {{ form.examen.length }}
                   </div>
                 </div>
               </div>
@@ -120,7 +120,7 @@
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
                         id="name"
-                        v-model="form.paciente.nombre"
+                        v-model="pacienteBorr.nombre"
                         class="from-control"
                         type="text"
                         name="name"
@@ -131,7 +131,7 @@
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
                         id="email"
-                        v-model="form.paciente.apellido"
+                        v-model="pacienteBorr.apellido"
                         class="from-control"
                         type="text"
                         name="surname"
@@ -142,7 +142,7 @@
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
                         id="rut"
-                        v-model="form.paciente.rut"
+                        v-model="pacienteBorr.rut"
                         class="from-control"
                         type="text"
                         name="rut"
@@ -154,7 +154,7 @@
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
                         id="name"
-                        v-model="form.paciente.direccion"
+                        v-model="pacienteBorr.direccion"
                         class="from-control"
                         type="text"
                         name="direccion"
@@ -165,7 +165,7 @@
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
                         id="email"
-                        v-model="form.paciente.correo"
+                        v-model="pacienteBorr.correo"
                         class="from-control"
                         type="text"
                         name="email"
@@ -176,7 +176,7 @@
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
                         id="telefono"
-                        v-model="form.paciente.numero"
+                        v-model="pacienteBorr.numero"
                         class="from-control"
                         type="text"
                         name="phone"
@@ -199,6 +199,11 @@
                           placeholder="Dirección"
                           @place-changed="getAddressData($event)"
                         />
+<div
+                        v-if="!form.place_id">
+                        <p>*Recuerda hacer click en tu dirección.</p>
+
+                        </div>
                       </div>
 
                       <div class="col-lg-12 mb-30 col-md-12 col-sm-12">
@@ -217,6 +222,7 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
                       <div class="simple-map">
+
                         <google-map
                           v-if="form.place_id"
                           id="map"
@@ -237,7 +243,7 @@
                 <client-only>
                   <fieldset v-if="step === 4">
                     <ItemListSelector
-                      v-model="form.examenes"
+                      v-model="form.examen"
                       :search-text="'Buscar'"
                       :options-data="examsOut"
                       :label-key="'nombre'"
@@ -249,7 +255,7 @@
                     <div class="row">
                       <div class="col-lg-4">
                         <div class="card card-margin">
-                 
+
                           <div class="card-header no-border">
                             <h5 class="card-title">Reserva</h5>
                           </div>
@@ -281,18 +287,18 @@
                               <ul class="widget-49-meeting-points">
                                 <li class="widget-49-meeting-item">
                                   <span
-                                    >Nombre: {{ form.paciente.nombre }}</span
+                                    >Nombre: {{ pacienteBorr.nombre }}</span
                                   >
                                 </li>
                                 <li class="widget-49-meeting-item">
                                   <span
                                     >Apellido:
-                                    {{ form.paciente.apellido }}</span
+                                    {{ pacienteBorr.apellido }}</span
                                   >
                                 </li>
                                 <li class="widget-49-meeting-item">
                                   <span
-                                    >Telefono: {{ form.paciente.numero }}</span
+                                    >Telefono: {{ pacienteBorr.numero }}</span
                                   >
                                 </li>
                               </ul>
@@ -309,7 +315,7 @@
                             <div class="widget-49">
                               <ol class="widget-49-meeting-points">
                                 <li
-                                  v-for="item of form.examenes"
+                                  v-for="item of form.examen"
                                   :key="item.id"
                                   class="widget-49-meeting-item"
                                 >
@@ -325,32 +331,34 @@
                 </fieldset>
                 <div class="btn-part">
                   <div class="row">
-                    <div class="form-group mb-0">
+                    <div v-if="step > 1" class="form-group mb-0 col">
                       <button
                         v-if="step > 1"
                         class="readon learn-more submit"
-                        t
+                        style="width: 100%"
                         value="Volver"
                         @click.prevent="backStep()"
                       >
                         Volver
                       </button>
                     </div>
-                    <div class="form-group mb-0">
+                    <div v-if="step !== totalSteps" class="form-group mb-0 col">
                       <button
                         v-if="step !== totalSteps"
                         class="readon learn-more submit"
                         value="Siguiente"
+                        style="width: 100%"
                         @click.prevent="advanceStep()"
                       >
                         Siguiente
                       </button>
                     </div>
-                    <div class="form-group mb-0">
+                    <div v-if="step === totalSteps" class="form-group mb-0 col">
                       <button
                         v-if="step === totalSteps"
                         class="readon learn-more submit"
                         value="Siguiente"
+                        style="width: 100%"
                         @click.prevent="ConfirmRes()"
                       >
                         Confirmar
@@ -368,6 +376,7 @@
 </template>
 
 <script>
+import qs from 'qs';
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
 import moment from 'moment'
@@ -384,7 +393,14 @@ export default {
   },
   data: () => ({
     step: 1,
-
+    pacienteBorr: {
+        nombre: '',
+        apellido: '',
+        rut: '',
+        numero: '',
+        correo: '',
+        direccion: '',
+      },
     options: {
       componentRestrictions: { country: 'cl' },
       fields: ['address_components', 'geometry', 'icon', 'name'],
@@ -420,10 +436,7 @@ export default {
     pacientes: [],
     examsOut: [],
     pacienteDisponible: false,
-    pacienteActual: {},
-    form: {
-      fecha: '',
-      paciente: {
+    pacienteActual: {
         id: 0,
         nombre: '',
         apellido: '',
@@ -432,7 +445,10 @@ export default {
         correo: '',
         direccion: '',
       },
-      examenes: [],
+    form: {
+      fecha: '',
+      paciente: 0,
+      examen: [],
       geo: {
         lat: 0,
         lng: 0,
@@ -459,10 +475,14 @@ export default {
       '23',
     ],
   }),
-  async fetch() {
-    this.examsOut = await fetch(
-      'https://api.reservas-lab.ml/examenes?_limit=500'
-    ).then((res) => res.json())
+   async fetch() {
+    const examsreq = await this.$axios.get(
+      'http://api.reservas-lab.cf/api/examenes?pagination[limit]=500'
+    ).then((res) => {return res.data.data});
+    this.examsOut = examsreq.map(d => {
+      return {id: d.id,
+              nombre: d.attributes.nombre}
+    })
   },
   head() {
     return {
@@ -484,74 +504,73 @@ export default {
     },
     ConfirmRes() {
       // eslint-disable-next-line no-console
-      const filteredDT = this.pacientes.filter(
-        (d) => d.rut === this.form.paciente.rut
-      )
 
+//      this.form.examen = this.form.examen
       this.form.fechareserva = moment(this.form.fechareserva)
-      if (filteredDT.length === 0 && this.form.paciente.id === 0) {
+
         // eslint-disable-next-line no-console
         this.$axios
-          .post('https://api.reservas-lab.ml/pacientes', this.form.paciente)
+          .post('http://api.reservas-lab.cf/api/pacientes', {data: this.pacienteBorr})
           .then((pat) => {
-            this.form.paciente.id = pat.data.id
-            this.form.paciente.nombre = pat.data.nombre
-            this.form.paciente.apellido = pat.data.apellido
-            this.form.paciente.direccion = pat.data.direccion
-            this.form.paciente.correo = pat.data.correo
-            this.form.paciente.numero = pat.data.numero
-            // post reserva
-
-            if (pat.data) {
-              this.$axios
-                .post('https://api.reservas-lab.ml/domicilios', this.form)
+                // eslint-disable-next-line no-console
+                this.form.paciente = pat.data.data[0].id;
+                this.$axios
+                .post('http://api.reservas-lab.cf/api/domicilios', {data: this.form})
                 .then((v) => {
                   alert(
-                    'Su domicilio se ha realizado con éxito, pronto se le notificará cuando sea aprobado.'
+                    'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
                   )
                   this.$router.push({
                     path: '/',
                   })
                 })
+          })
+          .catch(
+            (err) => {
+              this.$axios
+                .post('http://api.reservas-lab.cf/api/domicilios', {data: this.form})
+                .then((v) => {
+                  alert(
+                    'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
+                  )
+                  this.$router.push({
+                    path: '/',
+                  })
+
+                })
+                .catch( err )
             }
-          })
-      } else {
-        this.$axios
-          .post('https://api.reservas-lab.ml/domicilios', this.form)
-          .then((v) => {
-            alert(
-              'Su domicilio se ha realizado con éxito, pronto se le notificará cuando sea aprobado.'
-            )
-            this.$router.push({
-              path: '/',
-            })
-          })
-      }
+          )
     },
-    CheckRut() {
+        CheckRut() {
       // eslint-disable-next-line no-console
 
-      this.form.paciente.rut = format(this.form.paciente.rut)
-      if (this.form.paciente.rut.length > 10) {
-        this.$axios.get('https://api.reservas-lab.ml/pacientes').then((val) => {
-          this.pacientes = val.data
-        })
+      this.pacienteBorr.rut = format(this.pacienteBorr.rut)
+      if (this.pacienteBorr.rut.length > 10) {
+        const query = qs.stringify({
+  filters: {
+    rut: {
+      $eq: this.pacienteBorr.rut,
+    },
+  },
+}, {
+  encodeValuesOnly: true,
+});
 
-        const filteredDT = this.pacientes.filter(
-          (d) => d.rut === this.form.paciente.rut
-        )
+        this.$axios.get(`http://api.reservas-lab.cf/api/pacientes?${query}`).then((val) => {
+          if (val.status === 200) {
+          this.paciente = val.data.data[0];
+          this.form.paciente = val.data.data[0].id;
+          this.pacienteBorr.nombre = val.data.data[0].attributes.nombre;
+          this.pacienteBorr.apellido = val.data.data[0].attributes.apellido;
+          this.pacienteBorr.direccion = val.data.data[0].attributes.direccion;
+          this.pacienteBorr.correo = val.data.data[0].attributes.correo;
+          this.pacienteBorr.numero = val.data.data[0].attributes.numero;
+          }
+          this.paciente.status = val.status;
+        })
         // eslint-disable-next-line no-console
-        if (filteredDT.length) {
-          this.patientExists = true
-          this.form.paciente.id = filteredDT[0].id
-          this.form.paciente.nombre = filteredDT[0].nombre
-          this.form.paciente.apellido = filteredDT[0].apellido
-          this.form.paciente.direccion = filteredDT[0].direccion
-          this.form.paciente.correo = filteredDT[0].correo
-          this.form.paciente.numero = filteredDT[0].numero
-        } else {
-          this.patientExists = false
-        }
+
       }
     },
     getAddressData(addressData) {
@@ -576,10 +595,10 @@ export default {
           break
         case 2:
           if (
-            this.form.paciente.rut &&
-            this.form.paciente.nombre &&
-            this.form.paciente.apellido &&
-            this.form.paciente.direccion
+            this.pacienteBorr.rut &&
+            this.pacienteBorr.nombre &&
+            this.pacienteBorr.apellido &&
+            this.pacienteBorr.direccion
           ) {
             this.step++
           } else {
@@ -594,7 +613,7 @@ export default {
           }
           break
         case 4:
-          if (this.form.examenes.length) {
+          if (this.form.examen.length) {
             this.step++
           } else {
             alert('Selecciona examenes para continuar')

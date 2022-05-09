@@ -56,8 +56,8 @@
                 </div>
                 <div class="address-text">
                   <span class="label">Examenes:</span>
-                  <div v-if="form.examenes.length" class="desc">
-                    {{ form.examenes.length }}
+                  <div v-if="form.examen.length" class="desc">
+                    {{ form.examen.length }}
                   </div>
                 </div>
               </div>
@@ -86,7 +86,6 @@
                   <fieldset v-if="step === 1">
                     <VueCtkDateTimePicker
                       v-model="form.fechareserva"
-                      :locale="'es-do'"
                       :first-day-of-week="1"
                       :min-date="to"
                       :inline="true"
@@ -105,6 +104,19 @@
                   <div class="row">
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
+                        id="rut"
+                        v-model="pacienteBorr.rut"
+                        class="from-control"
+                        type="text"
+                        name="rut"
+                        placeholder="Rut"
+                        required=""
+                        @input="CheckRut"
+                      />
+
+                    </div>
+                    <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                      <input
                         id="name"
                         v-model="pacienteBorr.nombre"
                         class="from-control"
@@ -113,6 +125,7 @@
                         placeholder="Nombre"
                         required=""
                       />
+
                     </div>
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                       <input
@@ -123,18 +136,6 @@
                         name="surname"
                         placeholder="Apellido"
                         required=""
-                      />
-                    </div>
-                    <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
-                      <input
-                        id="rut"
-                        v-model="pacienteBorr.rut"
-                        class="from-control"
-                        type="text"
-                        name="rut"
-                        placeholder="Rut"
-                        required=""
-                        @input="CheckRut"
                       />
                     </div>
                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
@@ -175,7 +176,7 @@
                 <client-only>
                   <fieldset v-if="step === 3">
                     <ItemListSelector
-                      v-model="form.examenes"
+                      v-model="form.examen"
                       :search-text="'Buscar'"
                       :options-data="examsOut"
                       :label-key="'nombre'"
@@ -246,7 +247,7 @@
                             <div class="widget-49">
                               <ol class="widget-49-meeting-points">
                                 <li
-                                  v-for="item of form.examenes"
+                                  v-for="item of form.examen"
                                   :key="item.id"
                                   class="widget-49-meeting-item"
                                 >
@@ -303,33 +304,36 @@
                 </fieldset>
                 <div class="btn-part">
                   <div class="row">
-                    <div class="form-group mb-0">
+                    <div v-if="step > 1" class="form-group mb-0 col">
                       <button
                         v-if="step > 1"
                         class="readon learn-more submit"
                         type="submit"
+                        style="width: 100%"
                         value="Volver"
                         @click.prevent="backStep()"
                       >
                         Volver
                       </button>
                     </div>
-                    <div class="form-group mb-0">
+                    <div v-if="step !== totalSteps" class="form-group mb-0 col">
                       <button
                         v-if="step !== totalSteps"
                         class="readon learn-more submit"
                         type="submit"
+                        style="width: 100%"
                         value="Siguiente"
                         @click.prevent="advanceStep()"
                       >
                         Siguiente
                       </button>
                     </div>
-                    <div class="form-group mb-0">
+                    <div v-if="step === totalSteps" class="form-group mb-0 col">
                       <button
                         v-if="step === totalSteps"
                         class="readon learn-more submit"
                         type="submit"
+                        style="width: 100%"
                         value="Siguiente"
                         @click.prevent="ConfirmRes()"
                       >
@@ -348,11 +352,11 @@
 </template>
 
 <script>
-import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
-import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
-import moment from 'moment'
-import ItemListSelector from '@laomao800/vue-item-list-selector'
-import { format } from 'rut.js'
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+import moment from 'moment-timezone'
+import ItemListSelector from '@laomao800/vue-item-list-selector';
+import { format } from 'rut.js';
 const qs = require('qs');
 
 export default {
@@ -382,7 +386,7 @@ export default {
     form: {
       fechareserva: '',
       paciente: 0,
-      examenes: [],
+      examen: [],
     },
     to: moment().add(1, 'day').toISOString(),
     disabledDates: ['2021-11-17'],
@@ -405,7 +409,7 @@ export default {
   }),
    async fetch() {
     const examsreq = await this.$axios.get(
-      'https://api.reservas-lab.ml/api/examenes?pagination[limit]=500'
+      'http://api.reservas-lab.cf/api/examenes?pagination[limit]=500'
     ).then((res) => {return res.data.data});
     this.examsOut = examsreq.map(d => {
       return {id: d.id,
@@ -413,19 +417,41 @@ export default {
     })
   },
   methods: {
+    TimeEval(time) {
+if (time.includes('pm')) {
+  const arrfech = this.form.fechareserva.split('-');
+  const time = arrfech[2].split(' ');
+  const hour = time[1].split(':');
+
+
+  return arrfech[0] + '-' + arrfech[1] + '-'  + time[0] + 'T' + (+hour[0] + 12).toString() + ':' + hour[1] + ':00.000Z';
+
+} else {
+  const arrfech = this.form.fechareserva.split('-');
+  const time = arrfech[2].split(' ');
+  const hour = time[1].split(':');
+
+
+  return arrfech[0] + '-' + arrfech[1] + '-'  + time[0] + 'T' + hour[0] + ':' + hour[1] + ':00.000Z';
+}
+    },
     ConfirmRes() {
-      // eslint-disable-next-line no-console
-
-      this.form.fechareserva = moment(this.form.fechareserva)
-
+/* const moment = require('moment');
+ */      // eslint-disable-next-line no-console
         // eslint-disable-next-line no-console
-        this.$axios
-          .post('https://api.reservas-lab.ml/api/pacientes', {data: this.pacienteBorr})
+//        this.form.fechareserva = moment(this.form.fechareserva).toISOString();
+// this.form.fechareserva = momentx(this.form.fechareserva).format();
+/* this.form.fechareserva = moment(this.form.fechareserva).toISOString(); */
+
+
+this.form.fechareserva = this.TimeEval(this.form.fechareserva);
+console.log(this.form.fechareserva);
+this.$axios
+          .post('http://api.reservas-lab.cf/api/pacientes', {data: this.pacienteBorr})
           .then((pat) => {
-                console.log(pat.data.data.id);
-                this.form.paciente = pat.data.data.id;
+                this.form.paciente = pat.data.data;
                 this.$axios
-                .post('https://api.reservas-lab.ml/api/reservas', {data: this.form})
+                .post('http://api.reservas-lab.cf/api/reservas', {data: this.form})
                 .then((v) => {
                   alert(
                     'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
@@ -438,7 +464,7 @@ export default {
           .catch(
             (err) => {
               this.$axios
-                .post('https://api.reservas-lab.ml/api/reservas', {data: this.form})
+                .post('http://api.reservas-lab.cf/api/reservas', {data: this.form})
                 .then((v) => {
                   alert(
                     'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
@@ -446,6 +472,7 @@ export default {
                   this.$router.push({
                     path: '/',
                   })
+                  // eslint-disable-next-line no-console
                   console.log(err)
                 })
             }
@@ -466,26 +493,20 @@ export default {
   encodeValuesOnly: true,
 });
 
-        this.$axios.get(`https://api.reservas-lab.ml/api/pacientes?${query}`).then((val) => {
+        this.$axios.get(`http://api.reservas-lab.cf/api/pacientes?${query}&populate=%2A`).then((val) => {
           if (val.status === 200) {
-           this.paciente = val.data.data[0].attributes;
-           this.form.paciente = val.data.data[0].attributes;
+          this.paciente = val.data.data[0];
+          this.form.paciente = val.data.data[0];
+          this.pacienteBorr.nombre = val.data.data[0].attributes.nombre
+          this.pacienteBorr.apellido = val.data.data[0].attributes.apellido
+          this.pacienteBorr.direccion = val.data.data[0].attributes.direccion
+          this.pacienteBorr.correo = val.data.data[0].attributes.correo
+          this.pacienteBorr.numero = val.data.data[0].attributes.numero
           }
           this.paciente.status = val.status;
         })
-
         // eslint-disable-next-line no-console
-        if (this.paciente.status === 200) {
-          this.patientExists = true
-          this.pacienteBorr.id = this.paciente.id
-          this.pacienteBorr.nombre = this.paciente.nombre
-          this.pacienteBorr.apellido = this.paciente.apellido
-          this.pacienteBorr.direccion = this.paciente.direccion
-          this.pacienteBorr.correo = this.paciente.correo
-          this.pacienteBorr.numero = this.paciente.numero
-        } else {
-          this.patientExists = false
-        }
+
       }
     },
     advanceStep() {
@@ -510,7 +531,7 @@ export default {
           }
           break
         case 3:
-          if (this.form.examenes.length) {
+          if (this.form.examen.length) {
             this.step++
           } else {
             alert('Selecciona examenes para continuar')
@@ -874,3 +895,4 @@ body {
   text-transform: uppercase;
 }
 </style>
+

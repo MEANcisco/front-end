@@ -20,15 +20,44 @@
                   </div>
                 </div>
                 <h1 class="title">Revisa tus exámenes en linea</h1>
+
                 <p class="desc">
                   Ingresa la información entregada a la hora de atenderte en el
                   formulario, podrás ver el estado de tus exámenes.
                 </p>
+                <div class="btn-part">
+                  <a
+v-if="!showModal"
+                  class="readon learn-more contact-us"
+                  @click="toggle()"
+                    >Ver Ejemplo</a
+                  >
+                </div>
+                  <div class="btn-part">
+                  <a
+v-if="showModal"
+class="readon learn-more contact-us"
+                  @click="toggle()"
+                    >Ver Formulario</a
+                  >
+                </div>
+
+
+
               </div>
             </div>
             <div class="col-lg-6">
+               <div v-if="showModal">
+                <img
+style="background-color: white; overflow: hidden; padding: 25px; border-radius: 30px; max-width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;" src="~static/recibo.svg" alt="" />
+
+                </div>
               <client-only>
                 <form
+                  v-if="!showModal"
                   class="form-horizontal content-form"
                   name="MainGST"
                   method="POST"
@@ -40,10 +69,13 @@
                   <div class="form-group">
                     <div class="col-md-10 col-md-offset-1">
                       <input
+                        id="rut"
+                        v-model="rut"
+                        v-rut
                         class="form-control"
                         name="fsRut"
                         type="text"
-                        onchange="checkRutField(fsRut.value)"
+                        @input="CheckRut"
                         size="15"
                         maxlength="15"
                         csize="10"
@@ -85,7 +117,7 @@
                       <button
                         type="submit"
                         class="btn btn-danger"
-                        style="4dth: 100%"
+                        style="width: 100%"
                       >
                         Entrar
                       </button>
@@ -123,7 +155,27 @@
 </template>
 
 <script>
+import {format} from "rut.js";
+
 export default {
+
   name: 'ResultadosComponent',
-}
+
+  data() {
+    return {
+      rut: '',
+      showModal: false,
+    }
+  },
+
+  methods: {
+    CheckRut() {
+      // eslint-disable-next-line no-console
+      this.rut = format(this.rut)
+    },
+
+    toggle() {
+      this.showModal = !this.showModal
+    }
+  } }
 </script>

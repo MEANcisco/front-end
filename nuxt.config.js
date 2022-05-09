@@ -1,7 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
-
+  target: 'server',
+  fetchOnServer: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Laboratorio Clínico Alemán - Expertos en exámenes médicos ',
@@ -65,7 +65,7 @@ export default {
     '@nuxtjs/sitemap'
   ],
   sitemap: {
-    hostname: 'https://example.com',
+    hostname: 'https://laboratorio-front.netlify.app',
     gzip: true,
     routes: [
       '/',
