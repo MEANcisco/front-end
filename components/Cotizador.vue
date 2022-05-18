@@ -33,8 +33,8 @@
                         <thead>
                           <tr>
                             <th class="product-name">Examen</th>
-                            <th class="product-price">Entrega</th>
-                            <th class="product-quantity">Valor</th>
+                            <th class="product-price">Valor Particular</th>
+                            <th class="product-quantity">Valor Fonasa</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -47,7 +47,7 @@
                               <a>{{ item.nombre }}</a>
                             </td>
 
-                            <td class="product-price">{{ item.entrega }}</td>
+                            <td class="product-price">{{ item.valor }}</td>
                             <td v-if="!item.fonasa" class="product-name">
                               <a>No disponible</a>
                             </td>
@@ -163,14 +163,14 @@ export default {
       if(d.attributes.fonasa.data !== null){
         return {id: d.id,
               nombre: d.attributes.nombre,
-              entrega: d.attributes.entrega,
+              valor: d.attributes.valor,
               fonasa: d.attributes.fonasa.data.attributes
               }
       } else {
 
         return {id: d.id,
               nombre: d.attributes.nombre,
-              entrega: d.attributes.entrega,
+              valor: d.attributes.valor,
 
 
               }

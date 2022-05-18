@@ -13,6 +13,9 @@
               <p style="font-family: 'DINPro'">
                 Laboratorio Clínico Alemán
               </p>
+              <p style="font-family: 'DINPro'">
+                Laboratorio Clínico Mas avanzado en el Maule
+              </p>
             </div>
             <ul class="footer-social md-mb-30">
               <li>

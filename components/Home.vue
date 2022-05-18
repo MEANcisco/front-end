@@ -7,14 +7,12 @@
       <!--Full width header End-->
 
       <!-- AQUI SLIDER -->
-        <div class="rs-slider style1" style="margin-top: 0px">
-          <VueSlickCarousel
-ref="carousel"
-            class="rs-carousel"
-
-            v-bind="sliderconf"
-          >
-            <div class="slider-content slide2">
+      <video-background
+    src="https://api.reservas-lab.cf/uploads/Fondo_Laboratorio_f3d638249a.mp4"
+    poster="/images/mainfoto.jpg"
+    style="max-height: 1080px; height: 600px; background-color: rgba(0,0,0, 0.3); "
+ >
+<div class="slider-content slide2">
               <div class="container">
                 <div id="watermark"></div>
 
@@ -23,7 +21,7 @@ ref="carousel"
                     class="sl-sub-title wow bounceInLeft"
                     data-wow-delay="300ms"
                     data-wow-duration="2000ms"
-                    style="text-shadow: 3px 3px 3px #000000"
+                    style="text-shadow: 3px 3px 3px #000000; color: white; margin-top: 150px"
                   >
                     Maximizamos la
                   </div>
@@ -31,7 +29,7 @@ ref="carousel"
                     class="sl-title mb-mb-10 wow fadeInRight"
                     data-wow-delay="600ms"
                     data-wow-duration="2000ms"
-                    style="text-shadow: 3px 3px 3px #000000"
+                    style="text-shadow: 3px 3px 3px #000000; color: white;"
                   >
                     Precisión en exámenes
                   </h1>
@@ -39,7 +37,7 @@ ref="carousel"
                     class="sl-desc fadeInUp"
                     data-wow-delay="900ms"
                     data-wow-duration="2000ms"
-                    style="text-shadow: 3px 3px 3px #000000"
+                    style="text-shadow: 3px 3px 3px #000000; color: white;"
                   >
                     Usando técnología moderna y lo ultimo en analisis.
                   </div>
@@ -48,7 +46,8 @@ ref="carousel"
                     data-wow-delay="200ms"
                     data-wow-duration="3000ms"
                   >
-                    <li>
+                    <li style="z-index: 100">
+                      <no-ssr>
                       <nuxt-link to="/reservas">
 
                       <a
@@ -57,31 +56,22 @@ ref="carousel"
                         >Solicitar Domicilio</a
                       >
                       </nuxt-link>
+                      </no-ssr>
                     </li>
-                    <li>
-                      <div class="slider-video">
-                        <a
-                          style="z-index: 100"
-                          class="popup-videos"
-                          href="https://youtu.be/cu_88QCHUyc"
-                        >
-                        <no-ssr>
-                    <font-awesome-icon
 
-                      :icon="['fa', 'flask']"
-                    />
-                  </no-ssr>
-                          <font-awesome-icon
-                          :style="{ color: '#fff' }"
-                            :icon="['fas', 'play']"
-                          />
-                        </a>
-                      </div>
-                    </li>
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> </video-background>
+
+<!--         <div class="rs-slider style1" style="margin-top: 0px">
+          <VueSlickCarousel
+ref="carousel"
+            class="rs-carousel"
+
+            v-bind="sliderconf"
+          >
+
             <div class="slider-content slide1">
               <div class="container">
                 <div id="watermark"></div>
@@ -330,7 +320,7 @@ ref="carousel"
             </div>
           </VueSlickCarousel>
 
-        </div>
+        </div> -->
 
       <!-- Slider Section End -->
 
@@ -346,7 +336,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6 md-mb-30">
               <client-only>
                 <nuxt-link to="/reservas">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/reserva.svg" alt="" />
@@ -368,7 +358,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6 md-mb-30">
               <client-only>
                 <nuxt-link to="/domicilios">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/domicilios.svg" alt="" />
@@ -389,7 +379,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6 sm-mb-30">
               <client-only>
                 <nuxt-link to="/domicilios">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/resultados.svg" alt="" />
@@ -410,7 +400,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6">
               <client-only>
                 <nuxt-link to="/cotizador">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/cotizador.svg" alt="" />
@@ -431,13 +421,13 @@ ref="carousel"
           </div>
         </div>
       </div>
-      <div v-else class="rs-services main-home style1 pt-100">
+      <div v-else class="rs-services main-home style1 pt-100" style="margin-bottom: 30px">
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-md-6 md-mb-30">
               <client-only>
                 <nuxt-link to="/reservas">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/reserva.svg" alt="" />
@@ -459,7 +449,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6 md-mb-30">
               <client-only>
                 <nuxt-link to="/domicilios">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/domicilios.svg" alt="" />
@@ -480,7 +470,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6 sm-mb-30">
               <client-only>
                 <nuxt-link to="/resultados">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/resultados.svg" alt="" />
@@ -501,7 +491,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6">
               <client-only>
                 <nuxt-link to="/cotizador">
-                  <div class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/cotizador.svg" alt="" />
@@ -528,11 +518,67 @@ ref="carousel"
       <div id="nosotros" class="rs-about bg4 pt-120 pb-120 md-pt-80 md-pb-80">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-lg-6 md-mb-50">
-              <div class="images">
-                <img src="~static/banner-pic.svg" alt="" />
-              </div>
-            </div>
+            <div class="col-lg-6 col-md-12 pl-70 md-pl-15">
+                      <div class="rs-contact" style="box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px 10px; border-radius: 10px; margin-bottom: 5rem">
+                        <div class="contact-wrap">
+                          <div class="content-part mb-25">
+                            <h2 class="title mb-15">Horario de atención</h2>
+                            <p class="desc">Conoce nuestros horarios</p>
+                          </div>
+                          <div id="form-messages"></div>
+                          <form
+                            id="contact-form"
+                            method="post"
+                          >
+                            <fieldset>
+                              <div class="row">
+                                <div class="col-lg-12 mb-15">
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                      <h6>Lunes a Viernes:</h6>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <p>7:00am-7:00pm</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-12 mb-15">
+                                  <div class="row">
+                                    <div class="col-lg-6"><h6>Sabado:</h6></div>
+                                    <div class="col-lg-6">
+                                      <p>7:00am-12:30pm</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-12 mb-15">
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                      <h6 style="z-index: 99">Domingo:</h6>
+                                    </div>
+                                    <div
+                                      class="col-lg-6"
+                                      style="text-align: center"
+                                    >
+                                      <p  style="z-index: 99">Cerrado</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group mb-0">
+                                <nuxt-link to="/reservas">
+                                  <button
+                                    style="z-index: 100"
+                                    class="submit-btn"
+                                  >
+                                    Reserva tu Hora
+                                  </button>
+                                </nuxt-link>
+                              </div>
+                            </fieldset>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
             <div class="col-lg-6 pl-60 md-pl-15">
               <div class="contact-wrap">
                 <div class="sec-title mb-30">
@@ -629,11 +675,14 @@ border-radius: 10px 10px 10px 10px;">
                     Indicaciones Exámenes de Laboratorio
                   </h2>
                 </div>
+                                                <nuxt-link to="/examenes">
+
                 <div class="btn-part mt-40">
                   <a class="readon learn-more contact-us" href="#footer"
-                    >Contactar</a
+                    >Ver Información</a
                   >
                 </div>
+                                                </nuxt-link>
               </div>
             </div>
             <div class="col-lg-8 pl-30 md-pl-15">
@@ -925,12 +974,11 @@ href="blog-details.html"
 
 <script>  // optional style for arrows & dots
   import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-  import VueSlickCarousel from 'vue-slick-carousel'
 
 export default {
 
   name: 'HomeComponent',
-    components: { VueSlickCarousel },
+    components: {  },
   data: () => ({
     blog: [],
     sliderconf: {
@@ -969,3 +1017,17 @@ export default {
   },
 }
 </script>
+
+<style>
+.videobg-content {
+  display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+position: absolute;
+overflow: hidden;
+z-index: 0;
+background-color: rgba(0, 0, 0, 0.3);
+}
+</style>

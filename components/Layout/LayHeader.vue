@@ -70,7 +70,7 @@
 
               <nav
                 v-if="$device.isDesktop"
-                style="margin-left: 100%"
+                style="margin-left: 69%"
                 :class="[isActive ? 'rs-menu-open' : 'rs-menu-close']"
                 class="rs-menu"
               >
@@ -149,6 +149,21 @@
                             color: #53575a;
                           "
                           >COTIZADOR</a
+                        >
+                      </nuxt-link>
+                    </client-only>
+                  </li>
+<li style="margin-right: 0px">
+                    <client-only>
+                      <nuxt-link to="/examenes">
+                        <a
+                          style="
+                            font-family: 'DIN Alternate Bold';
+                            font-weight: normal;
+                            font-size: 18px;
+                            color: #53575a;
+                          "
+                          >EXAMENES</a
                         >
                       </nuxt-link>
                     </client-only>

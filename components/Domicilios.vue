@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 md-mb-60">
-            <div class="contact-box">
+            <div style="height: 100%" class="contact-box">
               <div class="sec-title mb-45">
                 <span class="sub-text new-text white-color">Domicilios</span>
                 <h2 class="title white-color">Programa un domicilio.</h2>
@@ -347,7 +347,8 @@
                         v-if="step !== totalSteps"
                         class="readon learn-more submit"
                         value="Siguiente"
-                        style="width: 100%"
+
+                        style="width: 100%; margin: 25px"
                         @click.prevent="advanceStep()"
                       >
                         Siguiente
@@ -372,6 +373,7 @@
         </div>
       </div>
     </div>
+    <LayoutLayFooter />
   </div>
 </template>
 
