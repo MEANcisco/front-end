@@ -26,7 +26,7 @@
                   <i class="flaticon-email"></i>
                   <span class="contact-info">
                     <span>E-mail</span>
-                    <a> contacto@laboratorioaleman.cl</a>
+                    <a> contacto@labaleman.cl</a>
                   </span>
                 </li>
                 <li class="contact-part no-border">

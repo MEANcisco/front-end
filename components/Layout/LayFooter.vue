@@ -75,8 +75,8 @@
                 <div class="desc">
                   <a
                     style="font-family: 'DINPro'"
-                    href="mailto:contacto@laboratorioaleman.cl"
-                    >contacto@laboratorioaleman.cl</a
+                    href="mailto:contacto@labaleman.cl"
+                    >contacto@labaleman.cl</a
                   >
                 </div>
               </li>

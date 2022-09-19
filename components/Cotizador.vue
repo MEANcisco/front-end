@@ -1,7 +1,7 @@
 <template>
   <div>
     <LayoutLayHeader />
-    <no-ssr>
+    <client-only>
       <div class="rs-banner style3 rs-rain-animate modify1">
         <div class="container">
           <div class="row">
@@ -55,7 +55,7 @@
                               <a>{{ item.fonasa.valor }}</a>
                             </td>
                           </tr>
-                          <tr
+                          <!-- <tr
                             v-if="
                               SelectedEx.filter((d) => d.fonasa).map((x) => {
                                 if (x.fonasa) {
@@ -79,7 +79,7 @@
                                 })[0]
                               }}
                             </td>
-                          </tr>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>
@@ -138,7 +138,7 @@
           <div class="line"></div>
         </div>
       </div>
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 
@@ -156,7 +156,7 @@ export default {
   }),
    async fetch() {
     const examsreq = await this.$axios.get(
-      'http://api.reservas-lab.cf/api/examenes?pagination[limit]=500&populate=%2A'
+      'https://api.labaleman.cl/api/examenes?pagination[limit]=500&populate=%2A'
     ).then((res) => {return res.data.data});
 
     this.exams = examsreq.map(d => {

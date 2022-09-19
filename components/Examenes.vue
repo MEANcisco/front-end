@@ -90,7 +90,7 @@ export default {
   },
      async fetch() {
     const exams = await this.$axios.get(
-      'https://api.reservas-lab.cf/api/examenes?pagination[limit]=500&populate=%2A'
+      'https://api.labaleman.cl/api/examenes?pagination[limit]=500&populate=%2A'
     ).then((res) => {
       console.log(res.data)
       return res.data.data});
@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     Buscar() {
-        this.$axios.get('https://api.reservas-lab.cf/api/examenes?pagination[limit]=500&populate=%2A&filters[nombre][$containsi]='+ this.busqueda
+        this.$axios.get('https://api.labaleman.cl/api/examenes?pagination[limit]=500&populate=%2A&filters[nombre][$containsi]='+ this.busqueda
 ).then(
   data => {
      console.log(data.data.data)

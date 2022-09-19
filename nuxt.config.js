@@ -1,6 +1,6 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
+  target: 'static',
   fetchOnServer: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -11,7 +11,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Laboratorio Clínico Alemán, con mas de 300 exámenes diferentes, uno de los laboratorios mas completos del Maule.' },
+      { hid: 'description', name: 'description', content: 'Laboratorio Clínico Alemán, con mas de 300 exámenes, uno de los laboratorios mas completos del Maule.' },
       { name: 'format-detection', content: 'telephone=yes' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -68,13 +68,15 @@ export default {
     '@nuxtjs/sitemap'
   ],
   sitemap: {
-    hostname: 'https://laboratorio-front.netlify.app',
+    hostname: 'https://labaleman.cl',
     gzip: true,
     routes: [
       '/',
       '/reservas',
       '/domicilios',
       '/resultados',
+      '/examenes',
+      '/cotizador',
     ]  },
   fontawesome: {
     icons: {
@@ -94,6 +96,9 @@ export default {
   ],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      compact: true,
+     },
     splitChunks: {
       layouts: false,
       pages: true,

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{246:function(o,n,w){o.exports=w.p+"img/recibo.3b1bf6f.svg"}}]);

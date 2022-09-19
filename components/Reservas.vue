@@ -15,12 +15,12 @@
                 <div
                   :class="[step > 1 ? 'address-icon-active' : 'address-icon']"
                 >
-                  <no-ssr>
+                  <client-only>
                     <font-awesome-icon
                       :style="{ color: '#fff' }"
                       :icon="['fas', 'calendar-day']"
                     />
-                  </no-ssr>
+                  </client-only>
                 </div>
                 <div class="address-text">
                   <span class="label">Fecha de Reserva:</span>
@@ -31,12 +31,12 @@
                 <div
                   :class="[step > 2 ? 'address-icon-active' : 'address-icon']"
                 >
-                  <no-ssr>
+                  <client-only>
                     <font-awesome-icon
                       :style="{ color: '#fff' }"
                       :icon="['fa', 'user']"
                     />
-                  </no-ssr>
+                  </client-only>
                 </div>
                 <div class="address-text">
                   <span class="label">Informacion Paciente</span>
@@ -47,12 +47,12 @@
                 <div
                   :class="[step > 3 ? 'address-icon-active' : 'address-icon']"
                 >
-                  <no-ssr>
+                  <client-only>
                     <font-awesome-icon
                       :style="{ color: '#fff' }"
                       :icon="['fa', 'flask']"
                     />
-                  </no-ssr>
+                  </client-only>
                 </div>
                 <div class="address-text">
                   <span class="label">Examenes:</span>
@@ -109,6 +109,8 @@
                         class="from-control"
                         type="text"
                         name="rut"
+                                                style="box-shadow: 0px 5px 10px black"
+
                         placeholder="Rut"
                         required=""
                         @input="CheckRut"
@@ -121,6 +123,7 @@
                         v-model="pacienteBorr.nombre"
                         class="from-control"
                         type="text"
+                        style="box-shadow: 0px 5px 10px black"
                         name="name"
                         placeholder="Nombre"
                         required=""
@@ -134,6 +137,7 @@
                         class="from-control"
                         type="text"
                         name="surname"
+                        style="box-shadow: 0px 5px 10px black"
                         placeholder="Apellido"
                         required=""
                       />
@@ -145,6 +149,8 @@
                         class="from-control"
                         type="text"
                         name="direccion"
+                                                style="box-shadow: 0px 5px 10px black"
+
                         placeholder="direccion"
                         required=""
                       />
@@ -155,6 +161,8 @@
                         v-model="pacienteBorr.correo"
                         class="from-control"
                         type="text"
+                                                style="box-shadow: 0px 5px 10px black"
+
                         name="email"
                         placeholder="Correo"
                         required=""
@@ -167,6 +175,8 @@
                         class="from-control"
                         type="text"
                         name="phone"
+                                                style="box-shadow: 0px 5px 10px black"
+
                         placeholder="Telefono"
                         required=""
                       />
@@ -400,16 +410,19 @@ export default {
       '05',
       '06',
       '07',
+      '12',
+      '13','14','15','16','17','18',
       '19',
       '20',
       '21',
       '22',
       '23',
+      '24'
     ],
   }),
    async fetch() {
     const examsreq = await this.$axios.get(
-      'http://api.reservas-lab.cf/api/examenes?pagination[limit]=500'
+      'https://api.labaleman.cl/api/examenes?pagination[limit]=500'
     ).then((res) => {return res.data.data});
     this.examsOut = examsreq.map(d => {
       return {id: d.id,
@@ -422,8 +435,6 @@ if (time.includes('pm')) {
   const arrfech = this.form.fechareserva.split('-');
   const time = arrfech[2].split(' ');
   const hour = time[1].split(':');
-
-
   return arrfech[0] + '-' + arrfech[1] + '-'  + time[0] + 'T' + (+hour[0] + 12).toString() + ':' + hour[1] + ':00.000Z';
 
 } else {
@@ -436,22 +447,15 @@ if (time.includes('pm')) {
 }
     },
     ConfirmRes() {
-/* const moment = require('moment');
- */      // eslint-disable-next-line no-console
-        // eslint-disable-next-line no-console
-//        this.form.fechareserva = moment(this.form.fechareserva).toISOString();
-// this.form.fechareserva = momentx(this.form.fechareserva).format();
-/* this.form.fechareserva = moment(this.form.fechareserva).toISOString(); */
-
 
 this.form.fechareserva = this.TimeEval(this.form.fechareserva);
 console.log(this.form.fechareserva);
 this.$axios
-          .post('http://api.reservas-lab.cf/api/pacientes', {data: this.pacienteBorr})
+          .post('https://api.labaleman.cl/api/pacientes', {data: this.pacienteBorr})
           .then((pat) => {
                 this.form.paciente = pat.data.data;
                 this.$axios
-                .post('http://api.reservas-lab.cf/api/reservas', {data: this.form})
+                .post('https://api.labaleman.cl/api/reservas', {data: this.form})
                 .then((v) => {
                   alert(
                     'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
@@ -460,11 +464,19 @@ this.$axios
                     path: '/',
                   })
                 })
+                .catch(
+                  (err) => {
+                    console.log(err);
+                  }
+                )
           })
           .catch(
             (err) => {
+                this.step = 1;
+                alert('Horario ocupado, porfavor seleccione otro.');
+
               this.$axios
-                .post('http://api.reservas-lab.cf/api/reservas', {data: this.form})
+                .post('https://api.labaleman.cl/api/reservas', {data: this.form})
                 .then((v) => {
                   alert(
                     'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
@@ -493,7 +505,7 @@ this.$axios
   encodeValuesOnly: true,
 });
 
-        this.$axios.get(`http://api.reservas-lab.cf/api/pacientes?${query}&populate=%2A`).then((val) => {
+        this.$axios.get(`https://api.labaleman.cl/api/pacientes?${query}&populate=%2A`).then((val) => {
           if (val.status === 200) {
           this.paciente = val.data.data[0];
           this.form.paciente = val.data.data[0];

@@ -15,12 +15,12 @@
                 <div
                   :class="[step > 1 ? 'address-icon-active' : 'address-icon']"
                 >
-                  <no-ssr>
+                  <client-only>
                     <font-awesome-icon
                       :style="{ color: '#fff' }"
                       :icon="['fas', 'calendar-day']"
                     />
-                  </no-ssr>
+                  </client-only>
                 </div>
                 <div class="address-text">
                   <span class="label">Fecha de Domicilio:</span>
@@ -31,12 +31,12 @@
                 <div
                   :class="[step > 2 ? 'address-icon-active' : 'address-icon']"
                 >
-                  <no-ssr>
+                  <client-only>
                     <font-awesome-icon
                       :style="{ color: '#fff' }"
                       :icon="['fa', 'user']"
                     />
-                  </no-ssr>
+                  </client-only>
                 </div>
                 <div class="address-text">
                   <span class="label">Informacion Paciente:</span>
@@ -47,12 +47,12 @@
                 <div
                   :class="[step > 3 ? 'address-icon-active' : 'address-icon']"
                 >
-                  <no-ssr>
+                  <client-only>
                     <font-awesome-icon
                       :style="{ color: '#fff' }"
                       :icon="['fa', 'map-pin']"
                     />
-                  </no-ssr>
+                  </client-only>
                 </div>
                 <div class="address-text">
                   <span class="label">Ubicación:</span>
@@ -63,12 +63,12 @@
                 <div
                   :class="[step > 4 ? 'address-icon-active' : 'address-icon']"
                 >
-                  <no-ssr>
+                  <client-only>
                     <font-awesome-icon
                       :style="{ color: '#fff' }"
                       :icon="['fa', 'flask']"
                     />
-                  </no-ssr>
+                  </client-only>
                 </div>
                 <div class="address-text">
                   <span class="label">Examenes:</span>
@@ -219,6 +219,7 @@
                           required=""
                         />
                       </div>
+
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
                       <div class="simple-map">
@@ -239,6 +240,21 @@
                       </div>
                     </div>
                   </client-only>
+                   <div class="col-lg-12 mb-30 col-md-12 col-sm-12">
+                        <span class="label">Subir receta:</span>
+
+                        <input
+                          id="archivo"
+                          class="from-control"
+                          type="file"
+                          name="surname"
+                          placeholder="Referencia"
+                          required=""
+                          @change="onFileChange"
+                        />
+                        <h4 v-if="form.receta.length != 0"> Archivo cargado!</h4>
+                      </div>
+
                 </fieldset>
                 <client-only>
                   <fieldset v-if="step === 4">
@@ -248,7 +264,8 @@
                       :options-data="examsOut"
                       :label-key="'nombre'"
                     /></fieldset
-                ></client-only>
+                >
+                </client-only>
 
                 <fieldset v-if="step === 5">
                   <div class="container">
@@ -324,18 +341,23 @@
                               </ol>
                             </div>
                           </div>
+
                         </div>
                       </div>
                     </div>
                   </div>
                 </fieldset>
+
+
+
+
                 <div class="btn-part">
                   <div class="row">
                     <div v-if="step > 1" class="form-group mb-0 col">
                       <button
                         v-if="step > 1"
                         class="readon learn-more submit"
-                        style="width: 100%"
+                        style="width: 100%; margin-bottom: 25px"
                         value="Volver"
                         @click.prevent="backStep()"
                       >
@@ -348,7 +370,7 @@
                         class="readon learn-more submit"
                         value="Siguiente"
 
-                        style="width: 100%; margin: 25px"
+                        style="width: 100%;"
                         @click.prevent="advanceStep()"
                       >
                         Siguiente
@@ -395,6 +417,11 @@ export default {
   },
   data: () => ({
     step: 1,
+    selectedFiles: undefined,
+      currentFile: undefined,
+      progress: 0,
+      message: "",
+      fileInfos: [],
     pacienteBorr: {
         nombre: '',
         apellido: '',
@@ -458,6 +485,7 @@ export default {
       direccion: '',
       referencia: '',
       place_id: '',
+      receta: ''
     },
     to: moment().add(1, 'day').toISOString(),
     disabledDates: ['2021-11-17'],
@@ -479,7 +507,7 @@ export default {
   }),
    async fetch() {
     const examsreq = await this.$axios.get(
-      'http://api.reservas-lab.cf/api/examenes?pagination[limit]=500'
+      'https://api.labaleman.cl/api/examenes?pagination[limit]=500'
     ).then((res) => {return res.data.data});
     this.examsOut = examsreq.map(d => {
       return {id: d.id,
@@ -497,6 +525,26 @@ export default {
     panToMarker(pos) {
       this.$refs.Map.panTo(pos)
     },
+    onFileChange(e) {
+  const files = e.target.files || e.dataTransfer.files;
+  if (!files.length)
+    return;
+  console.log(files[0]);
+  const formData = new FormData()
+
+formData.append('files', files[0]);
+  this.$axios.post('https://api.labaleman.cl/api/upload', formData)
+  .then(
+    data => {
+      this.form.receta = 'https://api.labaleman.cl' + data.data[0].url;
+      console.log(this.form.receta);
+    }
+  )
+},
+    change(event) {
+    this.form.receta = event.target.files[0];
+    console.log(event.target)
+    },
     toggleInfoWindow(context) {
       this.infoWIndowContext = context
       this.showInfo = true
@@ -512,12 +560,12 @@ export default {
 
         // eslint-disable-next-line no-console
         this.$axios
-          .post('http://api.reservas-lab.cf/api/pacientes', {data: this.pacienteBorr})
+          .post('https://api.labaleman.cl/api/pacientes', {data: this.pacienteBorr})
           .then((pat) => {
                 // eslint-disable-next-line no-console
                 this.form.paciente = pat.data.data[0].id;
                 this.$axios
-                .post('http://api.reservas-lab.cf/api/domicilios', {data: this.form})
+                .post('https://api.labaleman.cl/api/domicilios', {data: this.form})
                 .then((v) => {
                   alert(
                     'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
@@ -530,7 +578,7 @@ export default {
           .catch(
             (err) => {
               this.$axios
-                .post('http://api.reservas-lab.cf/api/domicilios', {data: this.form})
+                .post('https://api.labaleman.cl/api/domicilios', {data: this.form})
                 .then((v) => {
                   alert(
                     'Su reserva se ha realizado con éxito, pronto se le notificará cualquier actualizacion.'
@@ -543,6 +591,10 @@ export default {
                 .catch( err )
             }
           )
+    },
+    upload() {
+      this.progress = 0;
+      console.log(this.currentFile);
     },
         CheckRut() {
       // eslint-disable-next-line no-console
@@ -559,7 +611,7 @@ export default {
   encodeValuesOnly: true,
 });
 
-        this.$axios.get(`http://api.reservas-lab.cf/api/pacientes?${query}`).then((val) => {
+        this.$axios.get(`https://api.labaleman.cl/api/pacientes?${query}`).then((val) => {
           if (val.status === 200) {
           this.paciente = val.data.data[0];
           this.form.paciente = val.data.data[0].id;

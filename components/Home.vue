@@ -7,10 +7,12 @@
       <!--Full width header End-->
 
       <!-- AQUI SLIDER -->
+                        <client-only>
+
       <video-background
-    src="https://api.reservas-lab.cf/uploads/Fondo_Laboratorio_f3d638249a.mp4"
-    poster="/images/mainfoto.jpg"
+    src="https://api.labaleman.cl/uploads/Fondo_Laboratorio_f3d638249a.mp4"
     style="max-height: 1080px; height: 600px; background-color: rgba(0,0,0, 0.3); "
+        overlay="linear-gradient(90deg, rgba(2,0,36,0.4) 0%, rgba(255,255,255,0) 50%, rgba(2,0,36,0.3) 95%)"
  >
 <div class="slider-content slide2">
               <div class="container">
@@ -47,8 +49,8 @@
                     data-wow-duration="3000ms"
                   >
                     <li style="z-index: 100">
-                      <no-ssr>
-                      <nuxt-link to="/reservas">
+                      <client-only>
+                      <nuxt-link to="/domicilios">
 
                       <a
                         class="readon learn-more slider-btn"
@@ -56,13 +58,14 @@
                         >Solicitar Domicilio</a
                       >
                       </nuxt-link>
-                      </no-ssr>
+                      </client-only>
                     </li>
 
                   </ul>
                 </div>
               </div>
             </div> </video-background>
+                        </client-only>
 
 <!--         <div class="rs-slider style1" style="margin-top: 0px">
           <VueSlickCarousel
@@ -328,7 +331,7 @@ ref="carousel"
 
       <div
         v-if="$device.isMobile"
-        style="margin-top: -50%"
+        style="margin-top: 0%"
         class="rs-services main-home style1 pt-100"
       >
         <div class="container">
@@ -344,10 +347,10 @@ ref="carousel"
                     </div>
                     <div class="services-content">
                       <div class="services-text">
-                        <h3 class="services-title"><a>Reserva Hora</a></h3>
+                        <h3 class="services-title"><a style="color:#fff">Reserva Hora</a></h3>
                       </div>
                       <div class="services-desc">
-                        <p>Para asistir a la toma de exámenes</p>
+                        <p style="color:#fff">Para asistir a la toma de exámenes</p>
                       </div>
                     </div>
                   </div>
@@ -366,10 +369,10 @@ ref="carousel"
                     </div>
                     <div class="services-content">
                       <div class="services-text">
-                        <h3 class="services-title"><a>Domicilios</a></h3>
+                        <h3 class="services-title"><a style="color:#fff">Domicilios</a></h3>
                       </div>
                       <div class="services-desc">
-                        <p>Solicita un exámen a domicilio</p>
+                        <p style="color:#fff">Solicita un exámen a domicilio</p>
                       </div>
                     </div>
                   </div>
@@ -387,10 +390,10 @@ ref="carousel"
                     </div>
                     <div class="services-content">
                       <div class="services-text">
-                        <h3 class="services-title"><a>Resultados</a></h3>
+                        <h3 class="services-title"><a style="color:#fff">Resultados</a></h3>
                       </div>
                       <div class="services-desc">
-                        <p>Revisa resultados de tus exámenes</p>
+                        <p style="color:#fff">Revisa resultados de tus exámenes</p>
                       </div>
                     </div>
                   </div>
@@ -408,10 +411,10 @@ ref="carousel"
                     </div>
                     <div class="services-content">
                       <div class="services-text">
-                        <h3 class="services-title"><a>Cotizador</a></h3>
+                        <h3 class="services-title"><a style="color:#fff">Cotizador</a></h3>
                       </div>
                       <div class="services-desc">
-                        <p>Revisa el valor de exámenes Fonasa.</p>
+                        <p style="color:#fff">Revisa el valor de exámenes Fonasa.</p>
                       </div>
                     </div>
                   </div>
@@ -421,13 +424,13 @@ ref="carousel"
           </div>
         </div>
       </div>
-      <div v-else class="rs-services main-home style1 pt-100" style="margin-bottom: 30px">
+      <div v-else class="rs-services  main-home style1 pt-100" style=" background-color: #fff; margin-top: 0px">
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-md-6 md-mb-30">
               <client-only>
                 <nuxt-link to="/reservas">
-                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px; z-index: 5; margin-top: -10rem; " class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/reserva.svg" alt="" />
@@ -449,7 +452,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6 md-mb-30">
               <client-only>
                 <nuxt-link to="/domicilios">
-                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px; z-index: 5; margin-top: -10rem;" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/domicilios.svg" alt="" />
@@ -470,7 +473,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6 sm-mb-30">
               <client-only>
                 <nuxt-link to="/resultados">
-                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px; z-index: 5; margin-top: -10rem;" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/resultados.svg" alt="" />
@@ -491,7 +494,7 @@ ref="carousel"
             <div class="col-lg-3 col-md-6">
               <client-only>
                 <nuxt-link to="/cotizador">
-                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px" class="services-item">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.5) 5px 2px 12px 5px; z-index: 5; margin-top: -10rem;" class="services-item">
                     <div class="services-icon">
                       <div class="image-part">
                         <img src="~static/cotizador.svg" alt="" />
@@ -515,9 +518,10 @@ ref="carousel"
       <!-- Services Section End -->
 
       <!-- About Section Start -->
-      <div id="nosotros" class="rs-about bg4 pt-120 pb-120 md-pt-80 md-pb-80">
+      <div id="nosotros" style="box-shadow: 10px 10px 20px;" class="rs-about bg4 pt-120 pb-120 md-pt-80 md-pb-80">
         <div class="container">
           <div class="row align-items-center">
+            <client-only>
             <div class="col-lg-6 col-md-12 pl-70 md-pl-15">
                       <div class="rs-contact" style="box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px 10px; border-radius: 10px; margin-bottom: 5rem">
                         <div class="contact-wrap">
@@ -535,18 +539,18 @@ ref="carousel"
                                 <div class="col-lg-12 mb-15">
                                   <div class="row">
                                     <div class="col-lg-6">
-                                      <h6>Lunes a Viernes:</h6>
+                                      <h6>{{horarios.d1}}</h6>
                                     </div>
                                     <div class="col-lg-6">
-                                      <p>7:00am-7:00pm</p>
+                                      <p>{{horarios.t1}}</p>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="col-lg-12 mb-15">
                                   <div class="row">
-                                    <div class="col-lg-6"><h6>Sabado:</h6></div>
+                                    <div class="col-lg-6"><h6>{{horarios.d2}}</h6></div>
                                     <div class="col-lg-6">
-                                      <p>7:00am-12:30pm</p>
+                                      <p>{{horarios.t2}}</p>
                                     </div>
                                   </div>
                                 </div>
@@ -579,6 +583,7 @@ ref="carousel"
                         </div>
                       </div>
                     </div>
+                    </client-only>
             <div class="col-lg-6 pl-60 md-pl-15">
               <div class="contact-wrap">
                 <div class="sec-title mb-30">
@@ -595,7 +600,7 @@ Confiabilidad,
 Seguridad y
 Calidad total en todos nuestros procesos
                   </div>
-                  <p class="margin-0 pb-15">
+                  <p class="margin-0 pb-15"></p>
                     <h2>Visión</h2>
                     <p>
                     Mantener la misión , modernizar según avances en la ciencia y tecnología.
@@ -615,7 +620,7 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
 
       <!-- Counter Section Start -->
       <div class="rs-counter main-counter-home">
-        <div class="counter-top-area text-center bg2">
+        <div class="counter-top-area text-center bg2" style="box-shadow: rgba(0, 0, 0, 0.6) 5px 5px 10px 5px">
           <div class="row">
            <!--  <div class="col-lg-4 md-mb-40">
               <div class="counter-list">
@@ -659,8 +664,7 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
             <div class="col-lg-4 md-mb-40">
               <div
 class="process-wrap bg3" style="
-
-background: url(assets/images/bg/process-bg.jpg);
+background-color: #03228F;
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
@@ -670,19 +674,23 @@ padding: 80px 40px 75px 40px;
 transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 border-radius: 10px 10px 10px 10px;">
                 <div class="sec-title mb-30">
-                  <div class="sub-text new">Toma de exámenes</div>
-                  <h2 class="title white-color">
+                  <div class="sub-text new" style="text-shadow: 3px 3px 3px #000000;">Toma de exámenes</div>
+                  <h2 class="title white-color" style="text-shadow: 3px 3px 3px #000000;">
                     Indicaciones Exámenes de Laboratorio
                   </h2>
                 </div>
+                                  <client-only>
+
                                                 <nuxt-link to="/examenes">
 
                 <div class="btn-part mt-40">
-                  <a class="readon learn-more contact-us" href="#footer"
+
+                  <a class="readon learn-more contact-us"
                     >Ver Información</a
                   >
                 </div>
                                                 </nuxt-link>
+                                  </client-only>
               </div>
             </div>
             <div class="col-lg-8 pl-30 md-pl-15">
@@ -780,7 +788,7 @@ href="blog-details.html"
                     ><img
                       v-if="entrada.portada"
                       :src="
-                        'http://api.reservas-lab.cf' +
+                        'http://api.labaleman.cl' +
                         entrada.portada.formats.large.url
                       "
                       alt=""
@@ -981,6 +989,14 @@ export default {
     components: {  },
   data: () => ({
     blog: [],
+    horarios: {
+      d1: 'Lunes a Viernes:',
+      t1: '7:00am-7:00pm',
+      d2: 'Sabado:',
+      t2: '7:00am-12:30pm',
+      d3: 'Domingo:',
+      t3: 'Cerrado'
+    },
     sliderconf: {
       slidesToScroll: 1,
       infinite: true,
@@ -1008,9 +1024,11 @@ export default {
     },
   }),
   async fetch() {
-    this.blog = await fetch('http://api.reservas-lab.cf/entradas').then(
-      (res) => res.json().data
-    )
+
+    const horarios = await fetch('https://api.labaleman.cl/api/Horarios').then(
+      (res) => {return res.json()}
+    );
+    this.horarios = horarios.data[0].attributes;
   },
 
     methods: {

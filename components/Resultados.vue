@@ -61,7 +61,7 @@ style="background-color: white; overflow: hidden; padding: 25px; border-radius: 
                   class="form-horizontal content-form"
                   name="MainGST"
                   method="POST"
-                  action="http://45.71.46.202/irispacientes/login_nuevo2.asp"
+                  action="https://resultados.labaleman.cl/irispacientes/login_nuevo2.asp"
                 >
                   <div class="col-md-10 col-md-offset-1">
                     <h3 style="color: #ffffff">Información de atención</h3>
@@ -126,11 +126,6 @@ style="background-color: white; overflow: hidden; padding: 25px; border-radius: 
 
                   <p style="text-align: center">
                     <font face="Arial, Helvetica" color="#ffffff" size="1">
-                      <script
-                        language="JavaScript"
-                        src="Java/dia.js"
-                        scr="js/dia.js"
-                      ></script>
                       Miércoles 10 de Noviembre, 2021
                       <br />
                       © 2010 - www.IrisLAB.cl
