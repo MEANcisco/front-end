@@ -1,7 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
-  fetchOnServer: false,
+  target: 'server',
+  fetchOnServer: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Laboratorio Clínico Alemán - Expertos en exámenes médicos ',
@@ -57,7 +57,6 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-
     [
       'vuejs-google-maps/nuxt',
       {

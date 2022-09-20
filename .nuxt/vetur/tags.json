@@ -1,0 +1,29 @@
+{
+  "Cotizador": {
+    "description": "Auto imported from components/Cotizador.vue"
+  },
+  "Domicilios": {
+    "description": "Auto imported from components/Domicilios.vue"
+  },
+  "Examenes": {
+    "description": "Auto imported from components/Examenes.vue"
+  },
+  "Home": {
+    "description": "Auto imported from components/Home.vue"
+  },
+  "Reservas": {
+    "description": "Auto imported from components/Reservas.vue"
+  },
+  "Resultados": {
+    "description": "Auto imported from components/Resultados.vue"
+  },
+  "ModalEx": {
+    "description": "Auto imported from components/modalEx.vue"
+  },
+  "LayoutLayFooter": {
+    "description": "Auto imported from components/Layout/LayFooter.vue"
+  },
+  "LayoutLayHeader": {
+    "description": "Auto imported from components/Layout/LayHeader.vue"
+  }
+}

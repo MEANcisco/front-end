@@ -167,15 +167,11 @@ export default {
               fonasa: d.attributes.fonasa.data.attributes
               }
       } else {
-
         return {id: d.id,
               nombre: d.attributes.nombre,
-              valor: d.attributes.valor,
-
-
+              valor: d.attributes.valor
               }
       }
-
     })
   },
   methods: {
