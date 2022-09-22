@@ -11,14 +11,14 @@
   "Home": {
     "description": "Auto imported from components/Home.vue"
   },
+  "ModalEx": {
+    "description": "Auto imported from components/modalEx.vue"
+  },
   "Reservas": {
     "description": "Auto imported from components/Reservas.vue"
   },
   "Resultados": {
     "description": "Auto imported from components/Resultados.vue"
-  },
-  "ModalEx": {
-    "description": "Auto imported from components/modalEx.vue"
   },
   "LayoutLayFooter": {
     "description": "Auto imported from components/Layout/LayFooter.vue"

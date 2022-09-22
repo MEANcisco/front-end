@@ -1,12 +1,12 @@
-export const Cotizador = () => import('../../components/Cotizador.vue' /* webpackChunkName: "components/cotizador" */).then(c => wrapFunctional(c.default || c))
-export const Domicilios = () => import('../../components/Domicilios.vue' /* webpackChunkName: "components/domicilios" */).then(c => wrapFunctional(c.default || c))
-export const Examenes = () => import('../../components/Examenes.vue' /* webpackChunkName: "components/examenes" */).then(c => wrapFunctional(c.default || c))
-export const Home = () => import('../../components/Home.vue' /* webpackChunkName: "components/home" */).then(c => wrapFunctional(c.default || c))
-export const Reservas = () => import('../../components/Reservas.vue' /* webpackChunkName: "components/reservas" */).then(c => wrapFunctional(c.default || c))
-export const Resultados = () => import('../../components/Resultados.vue' /* webpackChunkName: "components/resultados" */).then(c => wrapFunctional(c.default || c))
-export const ModalEx = () => import('../../components/modalEx.vue' /* webpackChunkName: "components/modal-ex" */).then(c => wrapFunctional(c.default || c))
-export const LayoutLayFooter = () => import('../../components/Layout/LayFooter.vue' /* webpackChunkName: "components/layout-lay-footer" */).then(c => wrapFunctional(c.default || c))
-export const LayoutLayHeader = () => import('../../components/Layout/LayHeader.vue' /* webpackChunkName: "components/layout-lay-header" */).then(c => wrapFunctional(c.default || c))
+export { default as Cotizador } from '../..\\components\\Cotizador.vue'
+export { default as Domicilios } from '../..\\components\\Domicilios.vue'
+export { default as Examenes } from '../..\\components\\Examenes.vue'
+export { default as Home } from '../..\\components\\Home.vue'
+export { default as ModalEx } from '../..\\components\\modalEx.vue'
+export { default as Reservas } from '../..\\components\\Reservas.vue'
+export { default as Resultados } from '../..\\components\\Resultados.vue'
+export { default as LayoutLayFooter } from '../..\\components\\Layout\\LayFooter.vue'
+export { default as LayoutLayHeader } from '../..\\components\\Layout\\LayHeader.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

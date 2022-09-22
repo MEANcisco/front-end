@@ -529,6 +529,7 @@ ref="carousel"
                             <h2 class="title mb-15">Horario de atención</h2>
                             <p class="desc">Conoce nuestros horarios</p>
                           </div>
+
                           <div id="form-messages"></div>
                           <form
                             id="contact-form"
@@ -615,23 +616,10 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
         </div>
       </div>
       <!-- About Section End -->
-
-      <!-- Call Us Section Start -->
-
-      <!-- Counter Section Start -->
-      <div class="rs-counter main-counter-home">
+<div class="rs-counter main-counter-home">
         <div class="counter-top-area text-center bg2" style="box-shadow: rgba(0, 0, 0, 0.6) 5px 5px 10px 5px">
           <div class="row">
-           <!--  <div class="col-lg-4 md-mb-40">
-              <div class="counter-list">
-                <div class="counter-text">
-                  <div class="count-number">
-                    <span class="rs-count k">80</span>
-                  </div>
-                  <h3 class="title">Clientes</h3>
-                </div>
-              </div>
-            </div> -->
+          
             <div class="col-lg-6 md-mb-40">
               <div class="counter-list">
                 <div class="counter-text">
@@ -655,6 +643,89 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
           </div>
         </div>
       </div>
+      <!-- certificación Section Start -->
+      <div id="nosotros"  class="rs-about  pt-120  md-pt-80 md-pb-80">
+        <div class="container">
+          <div class="row align-items-center">
+           <div class="col-lg-6 pl-60 md-pl-15">
+              <div class="contact-wrap">
+                <div class="sec-title mb-30">
+                  <div class="sub-text style2">Calidad</div>
+                  <div class="desc pb-35">
+                    <h2>Acreditación</h2>
+                    Según el proceso de acreditación de la super intendencia de salud nos encontramos en constante mejoramiento y buscamos la máxima Calidad
+                    en los procesos para nuestros pacientes, puedes dejar tus observaciones, reclamos y sugerencias en el siguiente cuadro.
+                  </div>
+                  <p class="margin-0 pb-15"></p>
+                  <div class="row">
+                    <div class="col-lg-6"><input
+                        v-model="formNombre"
+                        class="form-control"
+                        style="height: 60px; margin-bottom: 10px;"
+                        name="nombre"
+                        type="text"
+                        size="15"
+                        csize="10"
+                        placeholder="Nombre"
+                      /> </div>
+                  <div class="col-lg-6 ">
+                    <input
+                        v-model="formMail"
+                        class="form-control"
+                        style="height: 60px; margin-bottom: 10px;"
+                        name="correo"
+                        type="text"
+                        size="15"
+                        csize="10"
+                        placeholder="Correo"
+                      />
+                  </div>
+                  </div>
+                  
+                   
+                  <input
+                        v-model="formReclamo"
+                        class="form-control"
+                        style="height: 60px; margin-bottom: 10px;"
+                        name="reclamos"
+                        type="text"
+                        size="15"
+                        csize="10"
+                        placeholder="Reclamo o sugerencia"
+                      />                    
+                      <button
+                                    style="z-index: 100"
+                                    class="submit-btn"
+                                  >
+                                    Enviar
+                                  </button>
+                </div>
+
+              </div>
+            </div> 
+            <client-only>
+            <div class="col-lg-6 col-md-12 pl-70 md-pl-15">
+                      <div class="rs-contact" style="box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px 10px; border-radius: 10px; margin-bottom: 5rem">
+                        <div class="contact-wrap">
+                          <div class="content-part mb-25"
+                          >
+                          <img src="~static/acreditacion.png" alt="" />
+
+                          </div>
+                          <div id="form-messages"></div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    </client-only>
+            
+          </div>
+        </div>
+      </div>
+      <!--- certificación Section end ---> 
+
+      <!-- Counter Section Start -->
+      
       <!-- Counter Section End -->
 
       <!-- Process Section Start -->
@@ -989,6 +1060,9 @@ export default {
     components: {  },
   data: () => ({
     blog: [],
+    formNombre: '',
+    formMail: '',
+    formReclamo: '',
     horarios: {
       d1: 'Lunes a Viernes:',
       t1: '7:00am-7:00pm',
