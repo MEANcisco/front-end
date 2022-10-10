@@ -154,6 +154,7 @@ export default {
     SelectedEx: [],
     dataTable: [],
   }),
+  fetchOnServer: false,
    async fetch() {
     const examsreq = await this.$axios.get(
       'https://api.labaleman.cl/api/examenes?pagination[limit]=500&populate=%2A'

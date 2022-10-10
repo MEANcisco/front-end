@@ -70,7 +70,7 @@
 
               <nav
                 v-if="$device.isDesktop"
-                style="margin-left: 69%"
+                style="margin-left: 63%"
                 :class="[isActive ? 'rs-menu-open' : 'rs-menu-close']"
                 class="rs-menu"
               >
@@ -179,7 +179,7 @@
                             font-size: 18px;
                             color: #53575a;
                           "
-                          >CONTACTO</a
+                          >SUCURSALES</a
                         >
                       </nuxt-link>
                     </client-only>

@@ -4,13 +4,13 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _2a4baeda = () => interopDefault(import('..\\pages\\cotizador.vue' /* webpackChunkName: "pages/cotizador" */))
-const _7ae7d963 = () => interopDefault(import('..\\pages\\domicilios.vue' /* webpackChunkName: "pages/domicilios" */))
-const _1c0dc8ab = () => interopDefault(import('..\\pages\\examenes.vue' /* webpackChunkName: "pages/examenes" */))
-const _3623b5a0 = () => interopDefault(import('..\\pages\\reservas.vue' /* webpackChunkName: "pages/reservas" */))
-const _23268999 = () => interopDefault(import('..\\pages\\resultados.vue' /* webpackChunkName: "pages/resultados" */))
-const _10037a64 = () => interopDefault(import('..\\pages\\blogs\\_slug.vue' /* webpackChunkName: "pages/blogs/_slug" */))
-const _593eaba6 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _b01575c0 = () => interopDefault(import('../pages/cotizador.vue' /* webpackChunkName: "pages/cotizador" */))
+const _9b1de846 = () => interopDefault(import('../pages/domicilios.vue' /* webpackChunkName: "pages/domicilios" */))
+const _075551a5 = () => interopDefault(import('../pages/examenes.vue' /* webpackChunkName: "pages/examenes" */))
+const _5f94a3ac = () => interopDefault(import('../pages/reservas.vue' /* webpackChunkName: "pages/reservas" */))
+const _5aafbc13 = () => interopDefault(import('../pages/resultados.vue' /* webpackChunkName: "pages/resultados" */))
+const _1693a026 = () => interopDefault(import('../pages/blogs/_slug.vue' /* webpackChunkName: "pages/blogs/_slug" */))
+const _45a7591a = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -25,31 +25,31 @@ export const routerOptions = {
 
   routes: [{
     path: "/cotizador",
-    component: _2a4baeda,
+    component: _b01575c0,
     name: "cotizador"
   }, {
     path: "/domicilios",
-    component: _7ae7d963,
+    component: _9b1de846,
     name: "domicilios"
   }, {
     path: "/examenes",
-    component: _1c0dc8ab,
+    component: _075551a5,
     name: "examenes"
   }, {
     path: "/reservas",
-    component: _3623b5a0,
+    component: _5f94a3ac,
     name: "reservas"
   }, {
     path: "/resultados",
-    component: _23268999,
+    component: _5aafbc13,
     name: "resultados"
   }, {
     path: "/blogs/:slug?",
-    component: _10037a64,
+    component: _1693a026,
     name: "blogs-slug"
   }, {
     path: "/",
-    component: _593eaba6,
+    component: _45a7591a,
     name: "index"
   }],
 

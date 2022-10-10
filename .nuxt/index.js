@@ -12,14 +12,14 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_1a8a1814 from 'nuxt_plugin_plugin_1a8a1814' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_bootstrapvue_b74e7d34 from 'nuxt_plugin_bootstrapvue_b74e7d34' // Source: .\\bootstrap-vue.js (mode: 'all')
-import nuxt_plugin_googlemaps_ddb9cf3c from 'nuxt_plugin_googlemaps_ddb9cf3c' // Source: .\\google-maps.js (mode: 'all')
-import nuxt_plugin_axios_0bb60a37 from 'nuxt_plugin_axios_0bb60a37' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_fontawesome_33331839 from 'nuxt_plugin_fontawesome_33331839' // Source: .\\fontawesome.js (mode: 'all')
-import nuxt_plugin_deviceplugin_dd510a7c from 'nuxt_plugin_deviceplugin_dd510a7c' // Source: .\\device.plugin.js (mode: 'all')
-import nuxt_plugin_vueslickcarousel_d8b69d56 from 'nuxt_plugin_vueslickcarousel_d8b69d56' // Source: ..\\plugins\\vue-slick-carousel.js (mode: 'all')
-import nuxt_plugin_vuevideobackground_16f4d8ea from 'nuxt_plugin_vuevideobackground_16f4d8ea' // Source: ..\\plugins\\vue-video-background.js (mode: 'client')
+import nuxt_plugin_plugin_10b36335 from 'nuxt_plugin_plugin_10b36335' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_bootstrapvue_2728d8fa from 'nuxt_plugin_bootstrapvue_2728d8fa' // Source: ./bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_googlemaps_067c04f6 from 'nuxt_plugin_googlemaps_067c04f6' // Source: ./google-maps.js (mode: 'all')
+import nuxt_plugin_axios_01de146a from 'nuxt_plugin_axios_01de146a' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_fontawesome_aee7f666 from 'nuxt_plugin_fontawesome_aee7f666' // Source: ./fontawesome.js (mode: 'all')
+import nuxt_plugin_deviceplugin_14279256 from 'nuxt_plugin_deviceplugin_14279256' // Source: ./device.plugin.js (mode: 'all')
+import nuxt_plugin_vueslickcarousel_d8b69d56 from 'nuxt_plugin_vueslickcarousel_d8b69d56' // Source: ../plugins/vue-slick-carousel.js (mode: 'all')
+import nuxt_plugin_vuevideobackground_16f4d8ea from 'nuxt_plugin_vuevideobackground_16f4d8ea' // Source: ../plugins/vue-video-background.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -185,28 +185,28 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_1a8a1814 === 'function') {
-    await nuxt_plugin_plugin_1a8a1814(app.context, inject)
+  if (typeof nuxt_plugin_plugin_10b36335 === 'function') {
+    await nuxt_plugin_plugin_10b36335(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_bootstrapvue_b74e7d34 === 'function') {
-    await nuxt_plugin_bootstrapvue_b74e7d34(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_2728d8fa === 'function') {
+    await nuxt_plugin_bootstrapvue_2728d8fa(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_googlemaps_ddb9cf3c === 'function') {
-    await nuxt_plugin_googlemaps_ddb9cf3c(app.context, inject)
+  if (typeof nuxt_plugin_googlemaps_067c04f6 === 'function') {
+    await nuxt_plugin_googlemaps_067c04f6(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_0bb60a37 === 'function') {
-    await nuxt_plugin_axios_0bb60a37(app.context, inject)
+  if (typeof nuxt_plugin_axios_01de146a === 'function') {
+    await nuxt_plugin_axios_01de146a(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_fontawesome_33331839 === 'function') {
-    await nuxt_plugin_fontawesome_33331839(app.context, inject)
+  if (typeof nuxt_plugin_fontawesome_aee7f666 === 'function') {
+    await nuxt_plugin_fontawesome_aee7f666(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_deviceplugin_dd510a7c === 'function') {
-    await nuxt_plugin_deviceplugin_dd510a7c(app.context, inject)
+  if (typeof nuxt_plugin_deviceplugin_14279256 === 'function') {
+    await nuxt_plugin_deviceplugin_14279256(app.context, inject)
   }
 
   if (typeof nuxt_plugin_vueslickcarousel_d8b69d56 === 'function') {

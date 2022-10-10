@@ -619,7 +619,7 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
 <div class="rs-counter main-counter-home">
         <div class="counter-top-area text-center bg2" style="box-shadow: rgba(0, 0, 0, 0.6) 5px 5px 10px 5px">
           <div class="row">
-          
+
             <div class="col-lg-6 md-mb-40">
               <div class="counter-list">
                 <div class="counter-text">
@@ -681,8 +681,8 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
                       />
                   </div>
                   </div>
-                  
-                   
+
+
                   <input
                         v-model="formReclamo"
                         class="form-control"
@@ -692,17 +692,27 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
                         size="15"
                         csize="10"
                         placeholder="Reclamo o sugerencia"
-                      />                    
+                      />
                       <button
-                                    style="z-index: 100"
-                                    class="submit-btn"
+                      v-if="btnEnviar"
+                      style="z-index: 100"                                    class="submit-btn disabled"
+                                    @click="postReclamo()"
+
                                   >
                                     Enviar
+                                  </button>
+
+                                  <button
+                      v-if="!btnEnviar"
+                      style="z-index: 100; background-image: none;"                                    class="submit-btn"
+
+                                  >
+                                    Enviado
                                   </button>
                 </div>
 
               </div>
-            </div> 
+            </div>
             <client-only>
             <div class="col-lg-6 col-md-12 pl-70 md-pl-15">
                       <div class="rs-contact" style="box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px 10px; border-radius: 10px; margin-bottom: 5rem">
@@ -713,19 +723,19 @@ Ser digno de la preferencia y reconocimiento de nuestros pacientes , médicos y 
 
                           </div>
                           <div id="form-messages"></div>
-                          
+
                         </div>
                       </div>
                     </div>
                     </client-only>
-            
+
           </div>
         </div>
       </div>
-      <!--- certificación Section end ---> 
+      <!--- certificación Section end --->
 
       <!-- Counter Section Start -->
-      
+
       <!-- Counter Section End -->
 
       <!-- Process Section Start -->
@@ -1063,6 +1073,7 @@ export default {
     formNombre: '',
     formMail: '',
     formReclamo: '',
+    btnEnviar: true,
     horarios: {
       d1: 'Lunes a Viernes:',
       t1: '7:00am-7:00pm',
@@ -1106,6 +1117,23 @@ export default {
   },
 
     methods: {
+      postReclamo() {
+
+        if (this.formNombre !== '' || this.formMail !== '' || this.formReclamo !== '' ) {
+          this.$axios
+          .post('https://api.labaleman.cl/api/reclamos', {data: {nombre: this.formNombre, correo: this.formMail, reclamo: this.formReclamo}}).then(
+            (res) => {
+              print(res);
+              alert('enviado con éxito!');
+              this.btnEnviar = false;
+            }
+          )
+        } else {
+          alert('Falta llenar datos');
+        }
+
+
+      }
   },
 }
 </script>

@@ -2,56 +2,56 @@
   {
     "name": "cotizador",
     "path": "/cotizador",
-    "component": "C:\\\\Users\\\\Francisco\\\\Documents\\\\Laboratorio\\\\front\\\\front-end\\\\pages\\\\cotizador.vue",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/cotizador.vue",
     "chunkName": "pages/cotizador",
     "url": "/cotizador",
-    "_name": "_2a4baeda"
+    "_name": "_b01575c0"
   },
   {
     "name": "domicilios",
     "path": "/domicilios",
-    "component": "C:\\\\Users\\\\Francisco\\\\Documents\\\\Laboratorio\\\\front\\\\front-end\\\\pages\\\\domicilios.vue",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/domicilios.vue",
     "chunkName": "pages/domicilios",
     "url": "/domicilios",
-    "_name": "_7ae7d963"
+    "_name": "_9b1de846"
   },
   {
     "name": "examenes",
     "path": "/examenes",
-    "component": "C:\\\\Users\\\\Francisco\\\\Documents\\\\Laboratorio\\\\front\\\\front-end\\\\pages\\\\examenes.vue",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/examenes.vue",
     "chunkName": "pages/examenes",
     "url": "/examenes",
-    "_name": "_1c0dc8ab"
+    "_name": "_075551a5"
   },
   {
     "name": "reservas",
     "path": "/reservas",
-    "component": "C:\\\\Users\\\\Francisco\\\\Documents\\\\Laboratorio\\\\front\\\\front-end\\\\pages\\\\reservas.vue",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/reservas.vue",
     "chunkName": "pages/reservas",
     "url": "/reservas",
-    "_name": "_3623b5a0"
+    "_name": "_5f94a3ac"
   },
   {
     "name": "resultados",
     "path": "/resultados",
-    "component": "C:\\\\Users\\\\Francisco\\\\Documents\\\\Laboratorio\\\\front\\\\front-end\\\\pages\\\\resultados.vue",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/resultados.vue",
     "chunkName": "pages/resultados",
     "url": "/resultados",
-    "_name": "_23268999"
+    "_name": "_5aafbc13"
   },
   {
     "name": "blogs-slug",
     "path": "/blogs/:slug?",
-    "component": "C:\\\\Users\\\\Francisco\\\\Documents\\\\Laboratorio\\\\front\\\\front-end\\\\pages\\\\blogs\\\\_slug.vue",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/blogs/_slug.vue",
     "chunkName": "pages/blogs/_slug",
-    "_name": "_10037a64"
+    "_name": "_1693a026"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Francisco\\\\Documents\\\\Laboratorio\\\\front\\\\front-end\\\\pages\\\\index.vue",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/index.vue",
     "chunkName": "pages/index",
     "url": "/",
-    "_name": "_593eaba6"
+    "_name": "_45a7591a"
   }
 ]

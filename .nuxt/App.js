@@ -5,29 +5,29 @@ import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch,
 import NuxtError from './components/nuxt-error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import '..\\node_modules\\bootstrap\\dist\\css\\bootstrap.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
-import '..\\node_modules\\bootstrap-vue\\dist\\bootstrap-vue.css'
+import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css'
 
-import '..\\node_modules\\@fortawesome\\fontawesome-svg-core\\styles.css'
+import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
 
-import '..\\assets\\css\\animate.css'
+import '../assets/css/animate.css'
 
-import '..\\style.css'
+import '../style.css'
 
-import '..\\assets\\fonts\\flaticon.css'
+import '../assets/fonts/flaticon.css'
 
-import '..\\assets\\css\\slick.css'
+import '../assets/css/slick.css'
 
-import '..\\assets\\css\\off-canvas.css'
+import '../assets/css/off-canvas.css'
 
-import '..\\assets\\css\\magnific-popup.css'
+import '../assets/css/magnific-popup.css'
 
-import '..\\assets\\css\\rsmenu-main.css'
+import '../assets/css/rsmenu-main.css'
 
-import '..\\assets\\css\\rs-spacing.css'
+import '../assets/css/rs-spacing.css'
 
-import '..\\assets\\css\\responsive.css'
+import '../assets/css/responsive.css'
 
 import _6f6c098b from './layouts/default.vue'
 
