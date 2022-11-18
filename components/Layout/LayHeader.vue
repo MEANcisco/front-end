@@ -171,7 +171,7 @@
 
                   <li>
                     <client-only>
-                      <nuxt-link to="#footer">
+                      <nuxt-link to="/sucursales">
                         <a
                           style="
                             font-family: 'DIN Alternate Bold';

@@ -7,323 +7,10 @@
       <!--Full width header End-->
 
       <!-- AQUI SLIDER -->
-                        <client-only>
+      <VideoBg />
 
-      <video-background
-    src="https://api.labaleman.cl/uploads/Fondo_Laboratorio_f3d638249a.mp4"
-    style="max-height: 1080px; height: 600px; background-color: rgba(0,0,0, 0.3); "
-        overlay="linear-gradient(90deg, rgba(2,0,36,0.4) 0%, rgba(255,255,255,0) 50%, rgba(2,0,36,0.3) 95%)"
- >
-<div class="slider-content slide2">
-              <div class="container">
-                <div id="watermark"></div>
 
-                <div class="content-part text-center">
-                  <div
-                    class="sl-sub-title wow bounceInLeft"
-                    data-wow-delay="300ms"
-                    data-wow-duration="2000ms"
-                    style="text-shadow: 3px 3px 3px #000000; color: white; margin-top: 150px"
-                  >
-                    Maximizamos la
-                  </div>
-                  <h1
-                    class="sl-title mb-mb-10 wow fadeInRight"
-                    data-wow-delay="600ms"
-                    data-wow-duration="2000ms"
-                    style="text-shadow: 3px 3px 3px #000000; color: white;"
-                  >
-                    Precisión en exámenes
-                  </h1>
-                  <div
-                    class="sl-desc fadeInUp"
-                    data-wow-delay="900ms"
-                    data-wow-duration="2000ms"
-                    style="text-shadow: 3px 3px 3px #000000; color: white;"
-                  >
-                    Usando técnología moderna y lo ultimo en analisis.
-                  </div>
-                  <ul
-                    class="slider-btn wow fadeInRight"
-                    data-wow-delay="200ms"
-                    data-wow-duration="3000ms"
-                  >
-                    <li style="z-index: 100">
-                      <client-only>
-                      <nuxt-link to="/domicilios">
 
-                      <a
-                        class="readon learn-more slider-btn"
-                        style="z-index: 100"
-                        >Solicitar Domicilio</a
-                      >
-                      </nuxt-link>
-                      </client-only>
-                    </li>
-
-                  </ul>
-                </div>
-              </div>
-            </div> </video-background>
-                        </client-only>
-
-<!--         <div class="rs-slider style1" style="margin-top: 0px">
-          <VueSlickCarousel
-ref="carousel"
-            class="rs-carousel"
-
-            v-bind="sliderconf"
-          >
-
-            <div class="slider-content slide1">
-              <div class="container">
-                <div id="watermark"></div>
-
-                <div v-if="$device.isDesktop">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12 pr-140 md-mb-140 md-pr-15">
-                      <div class="content-wrap">
-                        <h1
-                          class="sl-title mb-mb-10 wow fadeInRight"
-                          data-wow-delay="600ms"
-                          style="text-shadow: 3px 3px 3px #000000"
-                          data-wow-duration="2000ms"
-                        >
-                          Laboratorio Clínico Alemán
-                        </h1>
-                        <div class="description">
-                          <div
-                    class="sl-desc fadeInUp"
-                    data-wow-delay="900ms"
-                    data-wow-duration="2000ms"
-                    style="text-shadow: 3px 3px 3px #000000"
-                  >
-                    Usando técnología moderna y lo ultimo en herramientas.
-                  </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 pl-70 md-pl-15">
-                      <div class="rs-contact">
-                        <div class="contact-wrap">
-                          <div class="content-part mb-25">
-                            <h2 class="title mb-15">Horario de atención</h2>
-                            <p class="desc">Conoce nuestros horarios</p>
-                          </div>
-                          <div id="form-messages"></div>
-                          <form
-                            id="contact-form"
-                            method="post"
-                          >
-                            <fieldset>
-                              <div class="row">
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6">
-                                      <h6>Lunes a Viernes:</h6>
-                                    </div>
-                                    <div class="col-lg-6">
-                                      <p>7:00am-7:00pm</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6"><h6>Sabado:</h6></div>
-                                    <div class="col-lg-6">
-                                      <p>7:00am-12:30pm</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6">
-                                      <h6 style="z-index: 99">Domingo:</h6>
-                                    </div>
-                                    <div
-                                      class="col-lg-6"
-                                      style="text-align: center"
-                                    >
-                                      <p  style="z-index: 99">Cerrado</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="form-group mb-0">
-                                <nuxt-link to="/reservas">
-                                  <button
-                                    style="z-index: 100"
-                                    class="submit-btn"
-                                  >
-                                    Reserva tu Hora
-                                  </button>
-                                </nuxt-link>
-                              </div>
-                            </fieldset>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div v-else-if="$device.isTablet">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12 pr-140 md-mb-140 md-pr-15">
-                      <div class="content-wrap">
-                        <h1
-                          class="sl-title mb-mb-10 wow fadeInRight"
-                          data-wow-delay="600ms"
-                          style="text-shadow: 3px 3px 3px #000000"
-                          data-wow-duration="2000ms"
-                        >
-                          Laboratorio Clínico Alemán
-                        </h1>
-                        <div class="description">
-                          <p
-                            style="
-                              color: #fff;
-                              text-shadow: 3px 3px 3px #000000;
-                            "
-                          >
-                            Tecnología en analisis de muestras en la región del
-                            Maule.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 pl-70 md-pl-15">
-                      <div class="rs-contact">
-                        <div class="contact-wrap">
-                          <div class="content-part mb-25">
-                            <h2 class="title mb-15">Horario de atención</h2>
-                            <p class="desc">Conoce nuestros horarios</p>
-                          </div>
-                          <div id="form-messages"></div>
-                          <form
-                            id="contact-form"
-                            method="post"
-                            action="mailer.php"
-                          >
-                            <fieldset>
-                              <div class="row">
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6">
-                                      <h6>Lunes a Viernes:</h6>
-                                    </div>
-                                    <div class="col-lg-6">
-                                      <p>7:00am-7:00pm</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6"><h6>Sabado:</h6></div>
-                                    <div class="col-lg-6">
-                                      <p>7:00am-12:30pm</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6">
-                                      <h6>Domingo:</h6>
-                                    </div>
-                                    <div
-                                      class="col-lg-6"
-                                      style="text-align: center"
-                                    >
-                                      <p>Cerrado</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="form-group mb-0">
-                                <input
-                                  class="submit-btn"
-                                  type="submit"
-                                                                      style="z-index: 100"
-
-                                  value="Reserva tu Hora"
-                                />
-                              </div>
-                            </fieldset>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div v-else>
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 pl-70 md-pl-15">
-                      <div class="rs-contact">
-                        <div class="contact-wrap">
-                          <div class="content-part mb-25">
-                            <h2 class="title mb-15">Horario de atención</h2>
-                            <p class="desc">Conoce nuestros horarios</p>
-                          </div>
-                          <div id="form-messages"></div>
-                          <form
-                            id="contact-form"
-                            method="post"
-                            action="mailer.php"
-                          >
-                            <fieldset>
-                              <div class="row">
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6">
-                                      <h6>Lunes a Viernes:</h6>
-                                    </div>
-                                    <div class="col-lg-6">
-                                      <p>7:00am-7:00pm</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6"><h6>Sabado:</h6></div>
-                                    <div class="col-lg-6">
-                                      <p>7:00am-12:30pm</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-12 mb-15">
-                                  <div class="row">
-                                    <div class="col-lg-6">
-                                      <h6>Domingo:</h6>
-                                    </div>
-                                    <div
-                                      class="col-lg-6"
-                                      style="text-align: center"
-                                    >
-                                      <p>Cerrado</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="form-group mb-0">
-                                <input
-                                  class="submit-btn"
-                                                                      style="z-index: 100"
-
-                                  type="submit"
-                                  value="Reserva tu Hora"
-                                />
-                              </div>
-                            </fieldset>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </VueSlickCarousel>
-
-        </div> -->
 
       <!-- Slider Section End -->
 
@@ -851,50 +538,7 @@ border-radius: 10px 10px 10px 10px;">
             <h2 class="title testi-title">Vea nuestro blog informativo</h2>
             <div class="heading-line"></div>
           </div> -->
-          <!--   <VueSlickCarousel
-              class="rs-carousel"
-              v-bind="sliderblog"
-            >
-              <div
-                v-for="entrada of blog"
-                :key="entrada.titulo"
-                style="height: 660px"
-                class="blog-item"
-              >
-                <div class="image-wrap"
-                >
-                  <a
-href="blog-details.html"
-                  style="height: 380px"
-                    ><img
-                      v-if="entrada.portada"
-                      :src="
-                        'http://api.labaleman.cl' +
-                        entrada.portada.formats.large.url
-                      "
-                      alt=""
-                  /></a>
-                  <ul class="post-categories">
-                    <li><a href="blog-details.html">Técnología</a></li>
-                  </ul>
-                </div>
-                <div class="blog-content">
-                  <ul class="blog-meta">
-                    <li class="date">
-                      <i class="fa fa-calendar-check-o"></i> 16 Nov 2020
-                    </li>
-                    <li class="admin"><i class="fa fa-user-o"></i> admin</li>
-                  </ul>
-                  <h3 class="blog-title">
-                    <a href="blog-details.html">{{ entrada.titulo }}</a>
-                  </h3>
-                  <p class="desc">¿Como tomar una buena muestra?...</p>
-                  <div class="blog-button">
-                    <a href="blog-details.html">Ver más</a>
-                  </div>
-                </div>
-              </div>
-            </VueSlickCarousel> -->
+
       <!--   </div>
       </div> -->
       <!-- Blog Section End -->
@@ -1056,24 +700,53 @@ href="blog-details.html"
 
       -->
       <!-- Partner End -->
+
+
+  <div id="pizarra"  class="rs-about  pt-120  md-pt-80 md-pb-80">
+        <div class="container">
+          <div class="row align-items-center">
+           <div class="col-lg-6 pl-60 md-pl-15">
+              <div class="contact-wrap">
+                <div class="sec-title mb-30">
+                  <div class="desc pb-35">
+                    <h2>Pizarra interactiva</h2>
+
+                    <VueSlickCarousel :arrows="true" :dots="true">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </VueSlickCarousel>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
     </div>
     <LayoutLayFooter />
   </div>
 </template>
 
 <script>  // optional style for arrows & dots
+  import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+  // optional style for arrows & dots
+
   import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import VideoBg from './Modules/VideoBg.vue'
 
 export default {
 
   name: 'HomeComponent',
-    components: {  },
+    components: { VideoBg },
   data: () => ({
     blog: [],
     formNombre: '',
     formMail: '',
     formReclamo: '',
     btnEnviar: true,
+    pizarra: [],
     horarios: {
       d1: 'Lunes a Viernes:',
       t1: '7:00am-7:00pm',
@@ -1083,18 +756,18 @@ export default {
       t3: 'Cerrado'
     },
     sliderconf: {
-      slidesToScroll: 1,
+      slidesToScroll: 2,
       infinite: true,
       dots: true,
       autoplaySpeed: 7000,
       autoplay: true,
     },
-    sliderblog: {
+    sliderpizarra: {
       slidesToShow: 3,
       slidesToScroll: 3,
       initialSlide: 0,
-      arrows: false,
-            autoplay: true,
+      arrows: true,
+      autoplay: true,
 
       lazyLoad: 'progressive'
 
@@ -1114,6 +787,9 @@ export default {
       (res) => {return res.json()}
     );
     this.horarios = horarios.data[0].attributes;
+    this.getHorario();
+    this.getPizarra();
+
   },
 
     methods: {
@@ -1132,6 +808,22 @@ export default {
           alert('Falta llenar datos');
         }
 
+
+      },
+      async getHorario() {
+        const horarios = await fetch('https://api.labaleman.cl/api/Horarios').then(
+          (res) => {return res.json()}
+        );
+          this.horarios = horarios.data[0].attributes;
+      },
+      async getPizarra() {
+        const pizarra = await fetch('https://api.labaleman.cl/api/pizarras').then(
+          (res) => {return res.json()}
+        );
+        console.log(pizarra);
+          this.pizarra = pizarra.data;
+          this.sliderpizarra.slidesToShow = pizarra.data.length;
+          this.sliderpizarra.slidesToScroll = pizarra.data.length;
 
       }
   },

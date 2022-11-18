@@ -40,6 +40,14 @@
     "_name": "_5aafbc13"
   },
   {
+    "name": "Sucursales",
+    "path": "/Sucursales",
+    "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/Sucursales.vue",
+    "chunkName": "pages/Sucursales",
+    "url": "/Sucursales",
+    "_name": "_297fff7d"
+  },
+  {
     "name": "blogs-slug",
     "path": "/blogs/:slug?",
     "component": "/Users/francisco/Documents/desarrollo/laboratorio-aleman/front-end/pages/blogs/_slug.vue",

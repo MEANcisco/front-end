@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[17,6,8,11,15],{167:function(o,n,w){o.exports=w.p+"img/logo.2ef06c7.svg"}}]);

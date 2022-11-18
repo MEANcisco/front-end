@@ -12,6 +12,8 @@ You can directly use them in pages and other components without the need to impo
 - `<Home>` | `<home>` (components/Home.vue)
 - `<Reservas>` | `<reservas>` (components/Reservas.vue)
 - `<Resultados>` | `<resultados>` (components/Resultados.vue)
+- `<Sucursales>` | `<sucursales>` (components/Sucursales.vue)
 - `<ModalEx>` | `<modal-ex>` (components/modalEx.vue)
+- `<ModulesVideoBg>` | `<modules-video-bg>` (components/Modules/VideoBg.vue)
 - `<LayoutLayFooter>` | `<layout-lay-footer>` (components/Layout/LayFooter.vue)
 - `<LayoutLayHeader>` | `<layout-lay-header>` (components/Layout/LayHeader.vue)

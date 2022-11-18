@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{343:function(o,n,w){o.exports=w.p+"img/footer-logo.212b59f.svg"}}]);

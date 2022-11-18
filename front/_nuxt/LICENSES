@@ -1,12 +1,6 @@
-//! Copyright (c) JS Foundation and other contributors
+//! moment.js
 
-//! github.com/moment/moment-timezone
-
-//! license : MIT
-
-//! moment-timezone.js
-
-//! version : 0.5.34
+//! moment.js locale configuration
 
 
 /*!
@@ -71,11 +65,6 @@
  */
 
 
-//! moment.js
-
-//! moment.js locale configuration
-
-
 /*!
   * vue-router v3.5.3
   * (c) 2021 Evan You
@@ -87,3 +76,14 @@
  * (c) 2014-2021 Evan You
  * Released under the MIT License.
  */
+
+
+//! Copyright (c) JS Foundation and other contributors
+
+//! github.com/moment/moment-timezone
+
+//! license : MIT
+
+//! moment-timezone.js
+
+//! version : 0.5.34

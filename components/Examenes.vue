@@ -63,6 +63,17 @@ v-for="(item, index) of examenes"
     <p v-if="!item.attributes.muestra"> Tipo de muestra: No especifica</p>
     <p v-if="item.attributes.valor"> Valor particular: {{item.attributes.valor}}</p>
     <p v-if="!item.attributes.valor"> Valor particular: No especifica</p>
+    <button
+v-if="item.attributes.pdf"
+                                    style="z-index: 100"
+                                    class="submit-btn"
+
+                                    @click="popup(item.attributes.pdf.url)"
+                                  >
+                                    Ver Indicaciones
+                                  </button>
+
+
   </div>
 </div>
        </div>
@@ -92,16 +103,23 @@ export default {
     const exams = await this.$axios.get(
       'https://api.labaleman.cl/api/examenes?pagination[limit]=500&populate=%2A'
     ).then((res) => {
-      console.log(res.data)
       return res.data.data});
       this.examenes = exams;
   },
   methods: {
+    popup(ruta) {
+      // let route = this.$router.resolve('/link/to/page'); // This also works.
+      if (ruta.includes('https://')) {
+        window.open(ruta, '_blank');
+      } else {
+        window.open('https://' + ruta, '_blank');
+
+      }
+    },
     Buscar() {
         this.$axios.get('https://api.labaleman.cl/api/examenes?pagination[limit]=500&populate=%2A&filters[nombre][$containsi]='+ this.busqueda
 ).then(
   data => {
-     console.log(data.data.data)
      this.examenes = data.data.data
   }
 )

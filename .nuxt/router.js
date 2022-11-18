@@ -9,6 +9,7 @@ const _9b1de846 = () => interopDefault(import('../pages/domicilios.vue' /* webpa
 const _075551a5 = () => interopDefault(import('../pages/examenes.vue' /* webpackChunkName: "pages/examenes" */))
 const _5f94a3ac = () => interopDefault(import('../pages/reservas.vue' /* webpackChunkName: "pages/reservas" */))
 const _5aafbc13 = () => interopDefault(import('../pages/resultados.vue' /* webpackChunkName: "pages/resultados" */))
+const _297fff7d = () => interopDefault(import('../pages/Sucursales.vue' /* webpackChunkName: "pages/Sucursales" */))
 const _1693a026 = () => interopDefault(import('../pages/blogs/_slug.vue' /* webpackChunkName: "pages/blogs/_slug" */))
 const _45a7591a = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -43,6 +44,10 @@ export const routerOptions = {
     path: "/resultados",
     component: _5aafbc13,
     name: "resultados"
+  }, {
+    path: "/Sucursales",
+    component: _297fff7d,
+    name: "Sucursales"
   }, {
     path: "/blogs/:slug?",
     component: _1693a026,

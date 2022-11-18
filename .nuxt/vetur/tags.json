@@ -17,8 +17,14 @@
   "Resultados": {
     "description": "Auto imported from components/Resultados.vue"
   },
+  "Sucursales": {
+    "description": "Auto imported from components/Sucursales.vue"
+  },
   "ModalEx": {
     "description": "Auto imported from components/modalEx.vue"
+  },
+  "ModulesVideoBg": {
+    "description": "Auto imported from components/Modules/VideoBg.vue"
   },
   "LayoutLayFooter": {
     "description": "Auto imported from components/Layout/LayFooter.vue"
