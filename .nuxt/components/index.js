@@ -6,9 +6,9 @@ export { default as Reservas } from '../../components/Reservas.vue'
 export { default as Resultados } from '../../components/Resultados.vue'
 export { default as Sucursales } from '../../components/Sucursales.vue'
 export { default as ModalEx } from '../../components/modalEx.vue'
-export { default as ModulesVideoBg } from '../../components/Modules/VideoBg.vue'
 export { default as LayoutLayFooter } from '../../components/Layout/LayFooter.vue'
 export { default as LayoutLayHeader } from '../../components/Layout/LayHeader.vue'
+export { default as ModulesVideoBg } from '../../components/Modules/VideoBg.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

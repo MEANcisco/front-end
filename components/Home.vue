@@ -702,7 +702,7 @@ border-radius: 10px 10px 10px 10px;">
       <!-- Partner End -->
 
 
-  <div id="pizarra"  class="rs-about  pt-120  md-pt-80 md-pb-80">
+  <div id="pizarra" v-if="pizarra.length" class="rs-about  pt-120  md-pt-80 md-pb-80">
         <div class="container">
           <div class="row align-items-center">
            <div class="col-lg-6 pl-60 md-pl-15">
@@ -712,10 +712,10 @@ border-radius: 10px 10px 10px 10px;">
                     <h2>Pizarra interactiva</h2>
 
                     <VueSlickCarousel :arrows="true" :dots="true">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
+                      <div
+                      v-for="item in pizarra" :key="item.attributes.url">
+                      <img :src="item.attributes.url" width="800"/></div>
+
     </VueSlickCarousel>
                     </div>
                     </div>
@@ -782,13 +782,13 @@ export default {
     },
   }),
   async fetch() {
-
+    this.getHorario();
+    this.getPizarra();
     const horarios = await fetch('https://api.labaleman.cl/api/Horarios').then(
       (res) => {return res.json()}
     );
     this.horarios = horarios.data[0].attributes;
-    this.getHorario();
-    this.getPizarra();
+
 
   },
 

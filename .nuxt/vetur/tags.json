@@ -23,13 +23,13 @@
   "ModalEx": {
     "description": "Auto imported from components/modalEx.vue"
   },
-  "ModulesVideoBg": {
-    "description": "Auto imported from components/Modules/VideoBg.vue"
-  },
   "LayoutLayFooter": {
     "description": "Auto imported from components/Layout/LayFooter.vue"
   },
   "LayoutLayHeader": {
     "description": "Auto imported from components/Layout/LayHeader.vue"
+  },
+  "ModulesVideoBg": {
+    "description": "Auto imported from components/Modules/VideoBg.vue"
   }
 }
